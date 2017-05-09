@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE xml>
 <migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
     <changeSet type="apply">
+        <createTable name="area" pkName="pk_area">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="owner_id" type="bigint" references="person.id" foreignKeyName="fk_area_owner_id" foreignKeyIndex="ix_area_owner_id"/>
+            <column name="number" type="integer"/>
+            <column name="area" type="integer"/>
+            <column name="cadastre_number" type="bigint"/>
+            <column name="water_supply" type="integer(1)"/>
+            <column name="electricity_counter_id" type="bigint"/>
+        </createTable>
+        <createTable name="building" pkName="pk_building">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="type_id" type="bigint" references="building_type.id" foreignKeyName="fk_building_type_id" foreignKeyIndex="ix_building_type_id"/>
+            <column name="area_id" type="bigint" references="area.id" foreignKeyName="fk_building_area_id" foreignKeyIndex="ix_building_area_id"/>
+            <column name="addintional_info" type="varchar"/>
+        </createTable>
+        <createTable name="building_type" pkName="pk_building_type">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="building_type_name" type="varchar"/>
+        </createTable>
+        <createTable name="counter_data" pkName="pk_counter_data">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="date" type="date"/>
+            <column name="data" type="double"/>
+            <column name="area_id" type="bigint" references="area.id" foreignKeyName="fk_counter_data_area_id" foreignKeyIndex="ix_counter_data_area_id"/>
+        </createTable>
+        <createTable name="electricity_rate" pkName="pk_electricity_rate">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="begin" type="date"/>
+            <column name="finish" type="date"/>
+            <column name="rate" type="double"/>
+        </createTable>
+        <createTable name="payment_data" pkName="pk_payment_data">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="area_id" type="bigint" references="area.id" foreignKeyName="fk_payment_data_area_id" foreignKeyIndex="ix_payment_data_area_id"/>
+            <column name="date" type="date"/>
+            <column name="total" type="double"/>
+        </createTable>
+        <createTable name="person" pkName="pk_person">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="first_name" type="varchar"/>
+            <column name="middle_name" type="varchar"/>
+            <column name="last_name" type="varchar"/>
+            <column name="city" type="varchar"/>
+            <column name="birthday" type="date"/>
+            <column name="ident_code" type="varchar"/>
+            <column name="address" type="varchar"/>
+            <column name="telephone" type="varchar"/>
+            <column name="persone_role_id" type="bigint" references="role.id" foreignKeyName="fk_person_persone_role_id" foreignKeyIndex="ix_person_persone_role_id"/>
+        </createTable>
         <createTable name="role" pkName="pk_role">
             <column name="id" type="bigint" primaryKey="true"/>
             <column name="role_name" type="varchar"/>
