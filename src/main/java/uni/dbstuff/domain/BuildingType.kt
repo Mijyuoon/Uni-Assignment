@@ -1,5 +1,7 @@
 package uni.dbstuff.domain
 
+import org.jetbrains.annotations.NotNull
+import uni.dbstuff.domain.finder.BuildingTypeFinder
 import javax.persistence.Entity
 import javax.persistence.Table
 
@@ -10,8 +12,10 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "building_type")
-class BuildingType: BaseModel(){
-
+class BuildingType: BaseModel() {
+    @NotNull
     var buildingTypeName: String? = null
+
+    companion object : BuildingTypeFinder()
 }
 

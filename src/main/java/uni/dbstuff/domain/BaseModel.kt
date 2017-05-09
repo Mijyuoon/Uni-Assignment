@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass
  */
 
 @MappedSuperclass
-abstract class BaseModel: Model(){
+abstract class BaseModel: Model() {
     @Id
     var ID: Long? = null
 }

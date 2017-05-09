@@ -2,6 +2,7 @@ package uni.dbstuff
 
 import uni.dbstuff.views.AppMainView
 import tornadofx.*
+import uni.dbstuff.domain.query.QArea
 import java.util.*
 
 class Application : App(AppMainView::class) {

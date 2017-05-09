@@ -18,16 +18,31 @@
             <artifactId>ebean</artifactId>
             <version>10.2.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean-querybean</artifactId>
+            <version>10.2.1</version>
+        </dependency>
+
         <dependency>
             <groupId>no.tornado</groupId>
             <artifactId>tornadofx</artifactId>
             <version>1.7.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jre8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test</artifactId>
@@ -60,7 +75,6 @@
                 </executions>
             </plugin>
 
-            <!--
             <plugin>
                 <groupId>io.repaint.maven</groupId>
                 <artifactId>tiles-maven-plugin</artifactId>
@@ -70,11 +84,10 @@
                     <tiles>
                         <tile>org.avaje.tile:java-compile:1.1</tile>
                         <tile>org.avaje.tile:kotlin-compile:1.1</tile>
-                        <tile>io.ebean.tile:enhancement:2.5</tile>
+                        <tile>io.ebean.tile:enhancement:2.7</tile>
                     </tiles>
                 </configuration>
             </plugin>
-            -->
         </plugins>
     </build>
 

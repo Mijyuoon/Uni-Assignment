@@ -1,5 +1,7 @@
 package uni.dbstuff.domain
 
+import uni.dbstuff.domain.finder.RoleFinder
+import org.jetbrains.annotations.NotNull
 import javax.persistence.Entity
 import javax.persistence.Table
 
@@ -11,7 +13,8 @@ import javax.persistence.Table
 @Entity
 @Table(name = "role")
 class Role: BaseModel() {
-
+    @NotNull
     var roleName: String? = null
 
+    companion object : RoleFinder()
 }
