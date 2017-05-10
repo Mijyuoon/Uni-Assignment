@@ -8,21 +8,18 @@ import javax.persistence.Entity
 import javax.persistence.ManyToOne
 import javax.persistence.Table
 
-/**
- * Created by Max on 5/4/2017.
- */
 
 @Entity
 @Table(name = "person")
-class Person: BaseModel() {
+class Person(firstName: String, middleName: String, lastName: String) : BaseModel() {
     @NotNull
-    var firstName: String? = null
+    var firstName: String? = firstName
 
     @NotNull
-    var middleName: String? = null
+    var middleName: String? = middleName
 
     @NotNull
-    var lastName: String? = null
+    var lastName: String? = lastName
 
     @NotNull
     var city: String? = null
@@ -43,5 +40,6 @@ class Person: BaseModel() {
     var personeRole: Role? = null
 
     companion object : PersonFinder()
+
 }
 
