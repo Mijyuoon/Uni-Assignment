@@ -12,6 +12,10 @@ import javafx.scene.layout.BorderPane
 import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.DerpModel
+import uni.dbstuff.domain.Person
+import uni.dbstuff.domain.Role
+import uni.dbstuff.domain.query.QPerson
+import uni.dbstuff.domain.query.QRole
 import java.util.*
 
 class AppMainView : View() {
@@ -27,6 +31,9 @@ class AppMainView : View() {
     val tclCombobox: TableColumn<DerpModel, String> by fxid()
 
     val TP: TabPane by fxid()
+    val tbRoles: TableView<Role> by fxid()
+    val tclRoleID: TableColumn<Role,Long> by fxid()
+    val tclRoleName: TableColumn<Role,String> by fxid()
 
     init {
         tbTest.isEditable = true
@@ -70,10 +77,29 @@ class AppMainView : View() {
     }
 
     fun newTab(){
-        val tab  = Tab("Tab " + (TP.tabs.size + 1));
-        TP.tabs.add(tab);
+        val tab  = Tab("Tab " + (TP.tabs.size + 1))
+        //tab.content.add()
+        TP.tabs.add(tab)
         TP.selectionModel.select(tab);
     }
+
+    fun createRole(){
+        Role("Bugger").save()
+        System.out.printf("creating bugger")
+    }
+    fun deleteRole(){
+        Role.where().roleName.equalTo("Bugger").delete()
+        System.out.printf("deleting bugger")
+    }
+
+    fun loadRoles(){
+        val roles = FXCollections.observableArrayList<Role>(QRole().findList())
+        tbRoles.items = roles
+
+    }
+
+
 }
+
 
 

@@ -40,6 +40,26 @@
                 </columns>
             </TableView>
         </Tab>
+
+        <Tab text = "Roles">
+            <TableView fx:id="tbRoles" editable="true">
+                <columns>
+                    <TableColumn fx:id="tclRoleID" prefWidth="100" text="ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ID"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="tclRoleName" prefWidth="150" text="Role Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="roleName"/>
+                        </cellValueFactory>
+                        <cellFactory>
+                            <TextFieldTableCell fx:factory="forTableColumn"/>
+                        </cellFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </Tab>
     </TabPane>
 </center>
     <bottom>
@@ -47,6 +67,9 @@
             <Button text="Add Shit" onAction="#addShit"/>
             <Button text="Combo Box Item" onAction="#addCombo"/>
             <Button text="Add tab" onAction="#newTab"/>
+            <Button text="addBugger" onAction="#createRole"/>
+            <Button text="deleteBugger" onAction="#deleteRole"/>
+            <Button text="loadRoles" onAction="#loadRoles"/>
         </HBox>
     </bottom>
 </BorderPane>
