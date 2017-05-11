@@ -1,5 +1,45 @@
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 
+<?import javafx.scene.layout.HBox?>
 <BorderPane xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-
+<center>
+    <TableView fx:id="tbTest" editable="true">
+        <columns>
+            <TableColumn fx:id="tclDerp1" prefWidth="100" text="Shite">
+                <cellValueFactory>
+                    <PropertyValueFactory property="shite"/>
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tclDerp2" prefWidth="150" text="Total Bollocks">
+                <cellValueFactory>
+                    <PropertyValueFactory property="herpDerp"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tclDerp3" prefWidth="100" text="Beep Boop">
+                <cellValueFactory>
+                    <PropertyValueFactory property="beepBoop"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tclCombobox" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="combobox"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</center>
+    <bottom>
+        <HBox>
+            <Button text="Add Shit" onAction="#addShit"/>
+            <Button text="Combo Box Item" onAction="#addCombo"/>
+        </HBox>
+    </bottom>
 </BorderPane>
