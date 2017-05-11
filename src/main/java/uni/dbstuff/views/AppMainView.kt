@@ -1,62 +1,79 @@
 package uni.dbstuff.views
 
-import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.binding.Bindings
 import javafx.collections.FXCollections
-import javafx.geometry.*
+import javafx.event.ActionEvent
+import javafx.event.EventHandler
 import javafx.scene.control.*
-import javafx.scene.layout.*
+import javafx.scene.control.cell.ComboBoxTableCell
+import javafx.scene.control.cell.PropertyValueFactory
+import javafx.scene.control.cell.TextFieldTableCell
+import javafx.scene.layout.BorderPane
+import javafx.util.Callback
 import tornadofx.*
-import uni.dbstuff.domain.Area
-import uni.dbstuff.domain.Building
-import uni.dbstuff.domain.Person
-import java.time.LocalDate
+import uni.dbstuff.DerpModel
+import java.util.*
 
 class AppMainView : View() {
+    init { title = messages["app_title"] }
+    override val root: BorderPane by fxml()
 
-    override val root = BorderPane()
-    val counter = SimpleIntegerProperty()
+    val comboSrc = FXCollections.observableArrayList<String>()
 
-    private val persons = FXCollections.observableArrayList<Person>(
-            Person("A","B","C")
+    val tbTest: TableView<DerpModel> by fxid()
+    val tclDerp1: TableColumn<DerpModel, String> by fxid()
+    val tclDerp2: TableColumn<DerpModel, Double> by fxid()
+    val tclDerp3: TableColumn<DerpModel, Date> by fxid()
+    val tclCombobox: TableColumn<DerpModel, String> by fxid()
 
-    )
+    val TP: TabPane by fxid()
 
     init {
-        title = "Counter"
+        tbTest.isEditable = true
 
-        with (root) {
-            style {
-
-            }
-            top{
-                menubar {
-                    menu("Additional Tables"){
-                        menuitem("Roles")
-                        menuitem("Building Types")
-                        menuitem("Payment Rate")
-                    }
-                    menu("Calculate Electricity Bill")
-                }
-            }
-            center {
-                tabpane {
-                    tab("People",GridPane()){
-                        tableview<Person> {
-                            items = persons
-                            column("firstName", Person::firstName)
-                            column("middleName", Person::middleName)
-                            column("lastName", Person::lastName)
-                        }
-                    }
-                        tab("Areas",TableView<Area>())
-                        tab("Buildings", TableView<Building>())
-                    }
-                }
-            }
-
+        tclDerp1.onEditCommit = EventHandler { e ->
+            System.out.println("Set 'shite' to: " + e.newValue)
         }
+
+        tclCombobox.cellFactory = ComboBoxTableCell.forTableColumn(comboSrc)
+
+        tbTest.rowFactory = Callback {
+            val row = TableRow<DerpModel>()
+
+            val menu = ContextMenu()
+            val menuDerp = MenuItem("Derp")
+            menuDerp.onAction = EventHandler {
+                System.out.println("DERP!")
+            }
+            menu.items.add(menuDerp)
+            row.contextMenuProperty().bind(
+                    Bindings.`when`(Bindings.isNotNull(row.itemProperty()))
+                            .then(menu)
+                            .otherwise(null as ContextMenu?))
+
+            row
+        }
+
     }
 
+    fun addShit() {
+        val item = DerpModel()
+        item.shite = "Shite"
+        item.herpDerp = 13.37
 
+        val dataItems = tbTest.items
+        dataItems.add(item)
+    }
+
+    fun addCombo() {
+        comboSrc.add("Item ${comboSrc.count() + 1}")
+    }
+
+    fun newTab(){
+        val tab  = Tab("Tab " + (TP.tabs.size + 1));
+        TP.tabs.add(tab);
+        TP.selectionModel.select(tab);
+    }
+}
 
 
