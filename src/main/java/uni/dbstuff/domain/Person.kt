@@ -11,15 +11,15 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "person")
-class Person(firstName: String, middleName: String, lastName: String) : BaseModel() {
+class Person: BaseModel() {
     @NotNull
-    var firstName: String? = firstName
+    var firstName: String? = null
 
     @NotNull
-    var middleName: String? = middleName
+    var middleName: String? = null
 
     @NotNull
-    var lastName: String? = lastName
+    var lastName: String? = null
 
     @NotNull
     var city: String? = null

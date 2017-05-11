@@ -6,40 +6,47 @@
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
 <BorderPane xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
 <center>
-    <TableView fx:id="tbTest" editable="true">
-        <columns>
-            <TableColumn fx:id="tclDerp1" prefWidth="100" text="Shite">
-                <cellValueFactory>
-                    <PropertyValueFactory property="shite"/>
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
-                </cellFactory>
-            </TableColumn>
-            <TableColumn fx:id="tclDerp2" prefWidth="150" text="Total Bollocks">
-                <cellValueFactory>
-                    <PropertyValueFactory property="herpDerp"/>
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="tclDerp3" prefWidth="100" text="Beep Boop">
-                <cellValueFactory>
-                    <PropertyValueFactory property="beepBoop"/>
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="tclCombobox" prefWidth="200">
-                <cellValueFactory>
-                    <PropertyValueFactory property="combobox"/>
-                </cellValueFactory>
-            </TableColumn>
-        </columns>
-    </TableView>
+    <TabPane fx:id="TP">
+        <Tab text = "People">
+            <TableView fx:id="tbTest" editable="true">
+                <columns>
+                    <TableColumn fx:id="tclDerp1" prefWidth="100" text="Shite">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="shite"/>
+                        </cellValueFactory>
+                        <cellFactory>
+                            <TextFieldTableCell fx:factory="forTableColumn"/>
+                        </cellFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="tclDerp2" prefWidth="150" text="Total Bollocks">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="herpDerp"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="tclDerp3" prefWidth="100" text="Beep Boop">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="beepBoop"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="tclCombobox" prefWidth="200">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="combobox"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </Tab>
+    </TabPane>
 </center>
     <bottom>
         <HBox>
             <Button text="Add Shit" onAction="#addShit"/>
             <Button text="Combo Box Item" onAction="#addCombo"/>
+            <Button text="Add tab" onAction="#newTab"/>
         </HBox>
     </bottom>
 </BorderPane>
