@@ -27,10 +27,14 @@ class Area: BaseModel() {
     @NotNull
     var waterSupply: Boolean? = true
 
-    //@NotNull
-    //var electricityCounterID: Long? =0
     @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "area")
-    var counters: List<CounterData>? = null
+    var payments: MutableList<PaymentData> = ArrayList()
+
+    @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "area")
+    var counters: MutableList<CounterData> = ArrayList()
+
+    @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "area")
+    var buildings: MutableList<Building> = ArrayList()
 
     companion object : AreaFinder()
 }
