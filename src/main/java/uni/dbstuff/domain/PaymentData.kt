@@ -22,10 +22,10 @@ class PaymentData: BaseModel(){
     var date: Date? = null
 
     @NotNull
-    var initialData: Double? = null
+    var initialData: PaymentData? = null
 
     @NotNull
-    var finalData: Double? = null
+    var finalData: PaymentData? = null
 
     @NotNull
     var total: Double? = null
