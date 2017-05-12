@@ -11,5 +11,5 @@ import javax.persistence.MappedSuperclass
 @MappedSuperclass
 abstract class BaseModel: Model() {
     @Id
-    var ID: Long? = null
+    var ID: Long? = 0
 }

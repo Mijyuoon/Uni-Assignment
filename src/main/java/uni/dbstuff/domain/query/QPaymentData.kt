@@ -29,8 +29,8 @@ class QPaymentData : TQRootBean<PaymentData, QPaymentData> {
   lateinit var ID: PLong<QPaymentData>
   lateinit var area: QAssocArea<QPaymentData>
   lateinit var date: PSqlDate<QPaymentData>
-  lateinit var firstCounterData: QAssocCounterData<QPaymentData>
-  lateinit var secondCounterData: QAssocCounterData<QPaymentData>
+  lateinit var initialData: QAssocCounterData<QPaymentData>
+  lateinit var finalData: QAssocCounterData<QPaymentData>
   lateinit var total: PDouble<QPaymentData>
 
 

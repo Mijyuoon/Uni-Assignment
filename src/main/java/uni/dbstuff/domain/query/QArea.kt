@@ -28,10 +28,10 @@ class QArea : TQRootBean<Area, QArea> {
   lateinit var ID: PLong<QArea>
   lateinit var owner: QAssocPerson<QArea>
   lateinit var number: PInteger<QArea>
-  lateinit var space: PInteger<QArea>
+  lateinit var area: PInteger<QArea>
   lateinit var cadastreNumber: PLong<QArea>
   lateinit var waterSupply: PBoolean<QArea>
-  lateinit var electricityCounterNumber: PLong<QArea>
+  lateinit var electricityCounterID: PLong<QArea>
 
 
   /**

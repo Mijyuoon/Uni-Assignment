@@ -27,10 +27,11 @@ class QPerson : TQRootBean<Person, QPerson> {
 
   lateinit var ID: PLong<QPerson>
   lateinit var firstName: PString<QPerson>
-  lateinit var secondName: PString<QPerson>
+  lateinit var middleName: PString<QPerson>
   lateinit var lastName: PString<QPerson>
   lateinit var city: PString<QPerson>
   lateinit var birthday: PSqlDate<QPerson>
+  lateinit var identCode: PString<QPerson>
   lateinit var address: PString<QPerson>
   lateinit var telephone: PString<QPerson>
   lateinit var personeRole: QAssocRole<QPerson>

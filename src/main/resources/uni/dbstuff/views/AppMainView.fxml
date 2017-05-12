@@ -70,6 +70,7 @@
             <Button text="addBugger" onAction="#createRole"/>
             <Button text="deleteBugger" onAction="#deleteRole"/>
             <Button text="loadRoles" onAction="#loadRoles"/>
+            <Button text="updateRole" onAction="#updateRole"/>
         </HBox>
     </bottom>
 </BorderPane>

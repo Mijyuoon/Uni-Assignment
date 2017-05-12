@@ -20,10 +20,10 @@ class QAssocArea<R>(name: String, root: R) : TQAssocBean<Area,R>(name, root) {
   lateinit var ID: PLong<R>
   lateinit var owner: QAssocPerson<R>
   lateinit var number: PInteger<R>
-  lateinit var space: PInteger<R>
+  lateinit var area: PInteger<R>
   lateinit var cadastreNumber: PLong<R>
   lateinit var waterSupply: PBoolean<R>
-  lateinit var electricityCounterNumber: PLong<R>
+  lateinit var electricityCounterID: PLong<R>
 
   // type safe fetch(properties) using varargs not supported yet ...
 }

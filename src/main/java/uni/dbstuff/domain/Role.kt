@@ -12,7 +12,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "role")
-class Role(name:String?): BaseModel() {
+class Role(name: String?): BaseModel() {
     @NotNull
     var roleName: String? = name
 

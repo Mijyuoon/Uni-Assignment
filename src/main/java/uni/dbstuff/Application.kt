@@ -1,5 +1,6 @@
 package uni.dbstuff
 
+import io.ebean.Ebean
 import uni.dbstuff.views.AppMainView
 import tornadofx.*
 import java.util.*

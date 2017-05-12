@@ -20,8 +20,8 @@ class QAssocPaymentData<R>(name: String, root: R) : TQAssocBean<PaymentData,R>(n
   lateinit var ID: PLong<R>
   lateinit var area: QAssocArea<R>
   lateinit var date: PSqlDate<R>
-  lateinit var firstCounterData: QAssocCounterData<R>
-  lateinit var secondCounterData: QAssocCounterData<R>
+  lateinit var initialData: QAssocCounterData<R>
+  lateinit var finalData: QAssocCounterData<R>
   lateinit var total: PDouble<R>
 
   // type safe fetch(properties) using varargs not supported yet ...

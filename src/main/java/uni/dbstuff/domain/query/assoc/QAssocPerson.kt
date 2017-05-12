@@ -19,10 +19,11 @@ class QAssocPerson<R>(name: String, root: R) : TQAssocBean<Person,R>(name, root)
 
   lateinit var ID: PLong<R>
   lateinit var firstName: PString<R>
-  lateinit var secondName: PString<R>
+  lateinit var middleName: PString<R>
   lateinit var lastName: PString<R>
   lateinit var city: PString<R>
   lateinit var birthday: PSqlDate<R>
+  lateinit var identCode: PString<R>
   lateinit var address: PString<R>
   lateinit var telephone: PString<R>
   lateinit var personeRole: QAssocRole<R>
