@@ -1,76 +1,13 @@
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.control.cell.TextFieldTableCell?>
 
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.Tab?>
 <BorderPane xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-<center>
-    <TabPane fx:id="TP">
-        <Tab text = "People">
-            <TableView fx:id="tbTest" editable="true">
-                <columns>
-                    <TableColumn fx:id="tclDerp1" prefWidth="100" text="Shite">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="shite"/>
-                        </cellValueFactory>
-                        <cellFactory>
-                            <TextFieldTableCell fx:factory="forTableColumn"/>
-                        </cellFactory>
-                    </TableColumn>
-                    <TableColumn fx:id="tclDerp2" prefWidth="150" text="Total Bollocks">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="herpDerp"/>
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn fx:id="tclDerp3" prefWidth="100" text="Beep Boop">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="beepBoop"/>
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn fx:id="tclCombobox" prefWidth="200">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="combobox"/>
-                        </cellValueFactory>
-                    </TableColumn>
-                </columns>
-            </TableView>
-        </Tab>
+    <top>
 
-        <Tab text = "Roles">
-            <TableView fx:id="tbRoles" editable="true">
-                <columns>
-                    <TableColumn fx:id="tclRoleID" prefWidth="100" text="ID">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="ID"/>
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn fx:id="tclRoleName" prefWidth="150" text="Role Name">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="roleName"/>
-                        </cellValueFactory>
-                        <cellFactory>
-                            <TextFieldTableCell fx:factory="forTableColumn"/>
-                        </cellFactory>
-                    </TableColumn>
-                </columns>
-            </TableView>
-        </Tab>
-    </TabPane>
-</center>
-    <bottom>
-        <HBox>
-            <Button text="Add Shit" onAction="#addShit"/>
-            <Button text="Combo Box Item" onAction="#addCombo"/>
-            <Button text="Add tab" onAction="#newTab"/>
-            <Button text="addBugger" onAction="#createRole"/>
-            <Button text="deleteBugger" onAction="#deleteRole"/>
-            <Button text="loadRoles" onAction="#loadRoles"/>
-            <Button text="updateRole" onAction="#updateRole"/>
-        </HBox>
-    </bottom>
+    </top>
+    <center>
+        <TabPane fx:id="pnTabs">
+        </TabPane>
+    </center>
 </BorderPane>

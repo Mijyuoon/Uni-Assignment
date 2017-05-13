@@ -18,7 +18,7 @@ class CounterData: BaseModel() {
     var date: Date? = null
 
     @NotNull
-    var data: Double? = null
+    var value: Double? = null
 
     @NotNull
     @ManyToOne
