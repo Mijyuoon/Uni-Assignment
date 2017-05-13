@@ -22,13 +22,10 @@ class Person: BaseModel() {
     var lastName: String? = null
 
     @NotNull
-    var city: String? = null
-
-    @NotNull
     var birthday: Date? = null
 
     @NotNull
-    var identCode: String? = null
+    var identCode: Long? = null
 
     @NotNull
     var address: String? = null

@@ -1,0 +1,10 @@
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <columns>
+        <TableColumn fx:id="colInit" text="%col_electricRateInit" prefWidth="160"/>
+        <TableColumn fx:id="colFinal" text="%col_electricRateFinal" prefWidth="160"/>
+        <TableColumn fx:id="colValue" text="%col_electricRateValue" prefWidth="100"/>
+    </columns>
+</TableView>

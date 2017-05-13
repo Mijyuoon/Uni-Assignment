@@ -1,0 +1,15 @@
+<?import javafx.scene.control.TableView?>
+
+<?import javafx.scene.control.TableColumn?>
+<TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <columns>
+        <TableColumn fx:id="colNumber" text="%col_areaNum" prefWidth="70"/>
+        <TableColumn fx:id="colSize" text="%col_areaSize" prefWidth="70"/>
+        <TableColumn fx:id="colCadNum" text="%col_areaCadNum" prefWidth="110"/>
+        <TableColumn fx:id="colCtrId" text="%col_areaCtrId" prefWidth="100"/>
+        <TableColumn fx:id="colWater" text="%col_areaWater" prefWidth="90"/>
+        <TableColumn fx:id="colBuilding" text="%col_areaBuilding" prefWidth="120"/>
+        <TableColumn fx:id="colCounter" text="%col_areaCounter" prefWidth="120"/>
+        <TableColumn fx:id="colPayment" text="%col_areaPayment" prefWidth="120"/>
+    </columns>
+</TableView>

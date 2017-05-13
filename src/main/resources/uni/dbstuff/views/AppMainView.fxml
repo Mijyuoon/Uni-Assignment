@@ -1,13 +1,27 @@
 <?import javafx.scene.layout.BorderPane?>
-
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Tab?>
-<BorderPane xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-    <top>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
 
+<BorderPane xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1"
+    minWidth="960" minHeight="600">
+    <top>
+        <MenuBar>
+            <Menu text="%menu_file">
+                <MenuItem text="%cmd_exit" accelerator="Ctrl+X" onAction="#appExit"/>
+            </Menu>
+            <Menu text="%menu_showTable">
+                <MenuItem text="%cmd_showAreas" onAction="#showTableArea"/>
+                <MenuItem text="%cmd_showPeople" onAction="#showTablePerson"/>
+                <MenuItem text="%cmd_showBuildings" onAction="#showTableBuilding"/>
+                <MenuItem text="%cmd_showCtrData" onAction="#showTableCtrData"/>
+                <MenuItem text="%cmd_showPayments" onAction="#showTablePayment"/>
+                <MenuItem text="%cmd_showPayRates" onAction="#showTablePayRate"/>
+            </Menu>
+        </MenuBar>
     </top>
     <center>
-        <TabPane fx:id="pnTabs">
-        </TabPane>
+        <TabPane fx:id="pnTabs" tabClosingPolicy="ALL_TABS"/>
     </center>
 </BorderPane>

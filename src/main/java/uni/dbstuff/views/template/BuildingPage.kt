@@ -8,12 +8,11 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.domain.Building
-import uni.dbstuff.fxui.HyperlinkCell
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class BuildingPage : View() {
+class BuildingPage : Fragment() {
     override val root: TableView<Building> by fxml()
 
     val colArea: TableColumn<Building, Number> by fxid()
@@ -31,6 +30,6 @@ class BuildingPage : View() {
             SimpleStringProperty(data ?: "")
         }
 
-        colInfo.cellValueFactory = PropertyValueFactory("addintionalInfo")
+        colInfo.cellValueFactory = PropertyValueFactory(Building::addintionalInfo.name)
     }
 }

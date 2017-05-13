@@ -10,5 +10,8 @@ class Application : App(AppMainView::class) {
         val localeProps: ResourceBundle = ResourceBundle.getBundle("uni.dbstuff.Language", Locale("en"))
     }
 
-    init { FX.messages = localeProps }
+    init {
+        FX.messages = localeProps
+        importStylesheet("/uni/dbstuff/MainStyles.css")
+    }
 }

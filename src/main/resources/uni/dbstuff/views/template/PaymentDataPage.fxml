@@ -1,0 +1,12 @@
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <columns>
+        <TableColumn fx:id="colArea" text="%col_areaNum" prefWidth="70"/>
+        <TableColumn fx:id="colDate" text="%col_paymentDate" prefWidth="160"/>
+        <TableColumn fx:id="colCtrInit" text="%col_paymentCtrInit" prefWidth="160"/>
+        <TableColumn fx:id="colCtrFinal" text="%col_paymentCtrFinal" prefWidth="160"/>
+        <TableColumn fx:id="colTotal" text="%col_paymentTotal" prefWidth="100"/>
+    </columns>
+</TableView>

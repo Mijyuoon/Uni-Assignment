@@ -25,6 +25,9 @@ class Area: BaseModel() {
     var cadastreNumber: Long? = 0
 
     @NotNull
+    var counterNumber: Long? = 0
+
+    @NotNull
     var waterSupply: Boolean? = true
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "area")

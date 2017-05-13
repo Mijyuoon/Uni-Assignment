@@ -7,12 +7,14 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.domain.CounterData
+import uni.dbstuff.fxui.FormattedCell
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class CounterDataPage : View() {
+class CounterDataPage : Fragment() {
     override val root: TableView<CounterData> by fxml()
 
     val colArea: TableColumn<CounterData, Number> by fxid()
@@ -25,7 +27,12 @@ class CounterDataPage : View() {
             SimpleIntegerProperty(data ?: 0)
         }
 
-        colDate.cellValueFactory = PropertyValueFactory("date")
-        colValue.cellValueFactory = PropertyValueFactory("data")
+        colDate.cellValueFactory = PropertyValueFactory(CounterData::date.name)
+        colDate.cellFactory = Callback {
+            FormattedCell(SimpleDateFormat(messages["format_date"]))
+        }
+
+        colValue.cellValueFactory = PropertyValueFactory(CounterData::value.name)
+
     }
 }

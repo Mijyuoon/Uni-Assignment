@@ -2,8 +2,9 @@ create table area (
   id                            integer not null,
   owner_id                      integer,
   number                        integer,
-  area                          integer,
+  area_size                     double,
   cadastre_number               integer,
+  counter_number                integer,
   water_supply                  integer(1),
   constraint pk_area primary key (id),
   foreign key (owner_id) references person (id) on delete restrict on update restrict
@@ -28,7 +29,7 @@ create table building_type (
 create table counter_data (
   id                            integer not null,
   date                          date,
-  data                          double,
+  value                         double,
   area_id                       integer,
   constraint pk_counter_data primary key (id),
   foreign key (area_id) references area (id) on delete restrict on update restrict
@@ -56,9 +57,8 @@ create table person (
   first_name                    varchar(255),
   middle_name                   varchar(255),
   last_name                     varchar(255),
-  city                          varchar(255),
   birthday                      date,
-  ident_code                    varchar(255),
+  ident_code                    integer,
   address                       varchar(255),
   telephone                     varchar(255),
   persone_role_id               integer,

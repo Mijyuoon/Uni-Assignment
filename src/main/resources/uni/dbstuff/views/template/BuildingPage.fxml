@@ -4,7 +4,7 @@
 <TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
     <columns>
         <TableColumn fx:id="colArea" text="%col_areaNum" prefWidth="70"/>
-        <TableColumn fx:id="colType" text="%col_buildingType" prefWidth="180"/>
-        <TableColumn fx:id="colInfo" text="%col_buildingInfo" prefWidth="300"/>
+        <TableColumn fx:id="colType" text="%col_buildingType" prefWidth="220"/>
+        <TableColumn fx:id="colInfo" text="%col_buildingInfo" prefWidth="400"/>
     </columns>
 </TableView>

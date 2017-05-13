@@ -2,6 +2,7 @@ package uni.dbstuff.domain
 
 import uni.dbstuff.domain.finder.PaymentDataFinder
 import org.jetbrains.annotations.NotNull
+import org.w3c.dom.css.Counter
 import java.sql.Date
 import javax.persistence.Entity
 import javax.persistence.ManyToOne
@@ -22,13 +23,13 @@ class PaymentData: BaseModel(){
     var date: Date? = null
 
     @NotNull
-    var initialData: PaymentData? = null
+    var initialData: CounterData? = null
 
     @NotNull
-    var finalData: PaymentData? = null
+    var finalData: CounterData? = null
 
     @NotNull
-    var total: Double? = null
+    var total: Double? = 0.0
 
     companion object : PaymentDataFinder()
 }
