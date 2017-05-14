@@ -2,6 +2,8 @@ package uni.dbstuff.utils
 
 import io.ebean.Model
 import javafx.event.EventHandler
+import javafx.scene.control.Alert
+import javafx.scene.control.ButtonType
 import javafx.scene.control.TableRow
 import javafx.scene.control.TableView
 import javafx.scene.input.KeyCode
@@ -46,7 +48,14 @@ class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var for
     }
 
     fun delete(item: T) {
-        item.delete()
-        tableView.items.remove(item)
+        val dialog = Alert(Alert.AlertType.CONFIRMATION)
+        dialog.contentText = FX.messages["msg_deleteRecord"]
+        dialog.headerText = FX.messages["mt_dataLoss"]
+
+        val res = dialog.showAndWait()
+        if(res.get() == ButtonType.OK) {
+            item.delete()
+            tableView.items.remove(item)
+        }
     }
 }

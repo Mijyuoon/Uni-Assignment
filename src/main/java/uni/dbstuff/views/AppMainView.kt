@@ -24,6 +24,11 @@ class AppMainView : View() {
         showTablePerson()
         showTableBuilding()
         showTableArea()
+
+        pnTabs.selectionModel.selectedItemProperty().addListener {
+            _, _, tb -> (tb.userData as IRefresher).refresh()
+            System.out.println("works?")
+        }
     }
 
     private fun addTab(text: String, content: Fragment) {

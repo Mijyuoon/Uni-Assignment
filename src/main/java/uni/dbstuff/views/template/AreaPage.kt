@@ -14,13 +14,14 @@ import uni.dbstuff.domain.query.QArea
 import uni.dbstuff.fxui.ButtonCell
 import uni.dbstuff.utils.TableViewEditFormAbstractor
 import uni.dbstuff.views.AppMainView
+import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.ITabAdder
 import uni.dbstuff.views.form.AreaForm
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class AreaPage(adder: ITabAdder) : Fragment() {
+class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<Area> by fxid()
 
@@ -80,4 +81,6 @@ class AreaPage(adder: ITabAdder) : Fragment() {
         val item = Area()
         editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

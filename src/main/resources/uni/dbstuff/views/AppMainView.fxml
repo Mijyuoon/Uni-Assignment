@@ -18,10 +18,11 @@
                 <MenuItem text="%cmd_showBuildings" onAction="#showTableBuilding"/>
                 <MenuItem text="%cmd_showCtrData" onAction="#showTableCtrData"/>
                 <MenuItem text="%cmd_showPayments" onAction="#showTablePayment"/>
-                <MenuItem text="%cmd_showPayRates" onAction="#showTablePayRate"/>
                 <SeparatorMenuItem/>
                 <MenuItem text="%cmd_editBuildTypes" onAction="#showTableBuildType"/>
                 <MenuItem text="%cmd_editPersonRoles" onAction="#showTablePersonRole"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="%cmd_showPayRates" onAction="#showTablePayRate"/>
             </Menu>
         </MenuBar>
     </top>

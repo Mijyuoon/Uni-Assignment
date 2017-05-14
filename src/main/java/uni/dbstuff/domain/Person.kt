@@ -3,6 +3,7 @@ package uni.dbstuff.domain
 
 import uni.dbstuff.domain.finder.PersonFinder
 import org.jetbrains.annotations.NotNull
+import uni.dbstuff.utils.Const
 import java.sql.Date
 import javax.persistence.Entity
 import javax.persistence.ManyToOne
@@ -21,7 +22,7 @@ class Person: BaseModel() {
     var lastName: String = ""
 
     @NotNull
-    var birthday: Date = Date(0L)
+    var birthday: Date = Const.curDate()
 
     @NotNull
     var identCode: Long = 0L

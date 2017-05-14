@@ -11,19 +11,24 @@ import tornadofx.*
 import uni.dbstuff.domain.CounterData
 import uni.dbstuff.domain.query.QCounterData
 import uni.dbstuff.fxui.FormattedCell
+import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
+import uni.dbstuff.views.form.CounterDataForm
 import java.text.SimpleDateFormat
 import java.util.*
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class CounterDataPage : Fragment() {
+class CounterDataPage : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<CounterData> by fxid()
 
     val colArea: TableColumn<CounterData, Number> by fxid()
     val colDate: TableColumn<CounterData, Date> by fxid()
     val colValue: TableColumn<CounterData, Double> by fxid()
+
+    val editor = TableViewEditFormAbstractor(tbData) { x -> CounterDataForm(x) }
 
     init {
         colArea.cellValueFactory = Callback { ob ->
@@ -42,6 +47,9 @@ class CounterDataPage : Fragment() {
     }
 
     fun createItem() {
-
+        val item = CounterData()
+        editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

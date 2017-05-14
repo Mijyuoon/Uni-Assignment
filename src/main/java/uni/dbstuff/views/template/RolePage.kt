@@ -9,12 +9,13 @@ import tornadofx.*
 import uni.dbstuff.domain.Role
 import uni.dbstuff.domain.query.QRole
 import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.RoleForm
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class RolePage : Fragment() {
+class RolePage : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<Role> by fxid()
 
@@ -32,4 +33,6 @@ class RolePage : Fragment() {
         val item = Role()
         editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

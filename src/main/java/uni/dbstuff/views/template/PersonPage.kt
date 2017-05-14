@@ -11,13 +11,14 @@ import tornadofx.*
 import uni.dbstuff.domain.Person
 import uni.dbstuff.domain.query.QPerson
 import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.PersonForm
 import java.util.*
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class PersonPage : Fragment() {
+class PersonPage : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<Person> by fxid()
 
@@ -53,4 +54,6 @@ class PersonPage : Fragment() {
         val item = Person()
         editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

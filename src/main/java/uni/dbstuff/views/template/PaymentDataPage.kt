@@ -14,13 +14,16 @@ import uni.dbstuff.domain.PaymentData
 import uni.dbstuff.domain.query.QPaymentData
 import uni.dbstuff.fxui.FormattedCell
 import uni.dbstuff.toSql
+import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
+import uni.dbstuff.views.form.PaymentDataForm
 import java.text.SimpleDateFormat
 import java.util.Date
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class PaymentDataPage : Fragment() {
+class PaymentDataPage : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<PaymentData> by fxid()
 
@@ -29,6 +32,8 @@ class PaymentDataPage : Fragment() {
     val colCtrInit: TableColumn<PaymentData, Date> by fxid()
     val colCtrFinal: TableColumn<PaymentData, Date> by fxid()
     val colTotal: TableColumn<PaymentData, Number> by fxid()
+
+    val editor = TableViewEditFormAbstractor(tbData) { x -> PaymentDataForm(x) }
 
     init {
         colArea.cellValueFactory = Callback { ob ->
@@ -50,6 +55,9 @@ class PaymentDataPage : Fragment() {
     }
 
     fun createItem() {
-
+        val item = PaymentData()
+        editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

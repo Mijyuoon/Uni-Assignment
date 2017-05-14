@@ -14,12 +14,13 @@ import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.Building
 import uni.dbstuff.domain.query.QBuilding
 import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.BuildingForm
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class BuildingPage(area: Area? = null) : Fragment() {
+class BuildingPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<Building> by fxid()
 
@@ -55,4 +56,6 @@ class BuildingPage(area: Area? = null) : Fragment() {
         val item = Building()
         editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

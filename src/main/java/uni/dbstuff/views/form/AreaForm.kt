@@ -4,7 +4,7 @@ import javafx.collections.FXCollections
 import javafx.scene.control.CheckBox
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
-import uni.dbstuff.Const
+import uni.dbstuff.utils.Const
 import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.Person
 import uni.dbstuff.domain.query.QPerson

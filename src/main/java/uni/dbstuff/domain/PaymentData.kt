@@ -3,6 +3,7 @@ package uni.dbstuff.domain
 import uni.dbstuff.domain.finder.PaymentDataFinder
 import org.jetbrains.annotations.NotNull
 import org.w3c.dom.css.Counter
+import uni.dbstuff.utils.Const
 import java.sql.Date
 import javax.persistence.Entity
 import javax.persistence.ManyToOne
@@ -20,7 +21,7 @@ class PaymentData: BaseModel() {
     var area: Area? = null
 
     @NotNull
-    var date: Date = Date(0L)
+    var date: Date = Const.curDate()
 
     @ManyToOne
     var initialData: Double = 0.0

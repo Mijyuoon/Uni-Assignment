@@ -9,12 +9,13 @@ import tornadofx.*
 import uni.dbstuff.domain.BuildingType
 import uni.dbstuff.domain.query.QBuildingType
 import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.BuildingTypeForm
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class BuildingTypePage : Fragment() {
+class BuildingTypePage : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<BuildingType> by fxid()
 
@@ -32,4 +33,6 @@ class BuildingTypePage : Fragment() {
         val item = BuildingType()
         editor.add(item)
     }
+
+    override fun refresh() = Unit
 }

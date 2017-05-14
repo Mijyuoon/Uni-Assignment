@@ -4,28 +4,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 
 <Form xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-    <Fieldset text="%frm_area">
+    <Fieldset text="%frm_counterData">
         <Field text="%col_areaNum">
-            <TextField fx:id="txNum"/>
+            <ComboBox fx:id="cbArea" maxWidth="Infinity"/>
         </Field>
-        <Field text="%col_areaOwner">
-            <ComboBox fx:id="cbOwner" maxWidth="Infinity"/>
+        <Field text="%col_counterDataDate">
+            <DatePicker fx:id="txDate"/>
         </Field>
-        <Field text="%col_areaSize">
-            <TextField fx:id="txSize"/>
-        </Field>
-        <Field text="%col_areaCadNum">
-            <TextField fx:id="txCadNum"/>
-        </Field>
-        <Field text="%col_areaCtrId">
-            <TextField fx:id="txCtrId"/>
-        </Field>
-        <Field text="%col_areaWater">
-            <CheckBox fx:id="ciWater"/>
+        <Field text="%col_counterDataValue">
+            <TextField fx:id="txValue"/>
         </Field>
     </Fieldset>
     <HBox spacing="10">

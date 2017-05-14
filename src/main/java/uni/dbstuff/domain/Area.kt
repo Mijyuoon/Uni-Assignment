@@ -19,7 +19,7 @@ class Area: BaseModel() {
     var number: Int = 0
 
     @NotNull
-    var areaSize: Double? = 0.0
+    var areaSize: Double = 0.0
 
     @NotNull
     var cadastreNumber: Long = 0L

@@ -2,6 +2,7 @@ package uni.dbstuff.domain
 
 import uni.dbstuff.domain.finder.ElectricityRateFinder
 import org.jetbrains.annotations.NotNull
+import uni.dbstuff.utils.Const
 import java.sql.Date
 import javax.persistence.Entity
 import javax.persistence.Table
@@ -14,10 +15,10 @@ import javax.persistence.Table
 @Table(name = "electricity_rate")
 class ElectricityRate: BaseModel() {
     @NotNull
-    var begin: Date = Date(0L)
+    var begin: Date = Const.curDate()
 
     @NotNull
-    var finish: Date = Date(0L)
+    var finish: Date = Const.curDate()
 
     @NotNull
     var rate: Double = 0.0

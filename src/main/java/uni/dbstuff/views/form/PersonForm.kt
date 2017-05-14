@@ -9,6 +9,7 @@ import uni.dbstuff.domain.Role
 import uni.dbstuff.domain.query.QRole
 import uni.dbstuff.matches
 import uni.dbstuff.toSql
+import uni.dbstuff.utils.Const
 
 /**
  * Created by mijyu on 14/05/2017.
@@ -50,7 +51,7 @@ class PersonForm(var source: Person) : BaseForm() {
         val birthday = txBirthday.value
 
         val ident = txIdent.text
-        if(!ident.matches("[0-9]+")) return
+        if(!ident.matches(Const.intRx)) return
 
         val address = txAddress.text
         if(address.isEmpty()) return
