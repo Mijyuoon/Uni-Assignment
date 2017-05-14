@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.DatePicker?>
 
-<Form xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+<Form xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1"
+    prefHeight="185">
     <Fieldset text="%frm_payRate">
         <Field text="%col_electricRateInit">
             <DatePicker fx:id="txBegin" maxWidth="Infinity"/>

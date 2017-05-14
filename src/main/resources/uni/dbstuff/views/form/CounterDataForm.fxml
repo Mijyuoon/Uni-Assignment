@@ -13,7 +13,7 @@
             <ComboBox fx:id="cbArea" maxWidth="Infinity"/>
         </Field>
         <Field text="%col_counterDataDate">
-            <DatePicker fx:id="txDate"/>
+            <DatePicker fx:id="txDate" maxWidth="Infinity"/>
         </Field>
         <Field text="%col_counterDataValue">
             <TextField fx:id="txValue"/>

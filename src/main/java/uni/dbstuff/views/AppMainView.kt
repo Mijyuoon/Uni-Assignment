@@ -1,5 +1,6 @@
 package uni.dbstuff.views
 
+import javafx.collections.FXCollections
 import javafx.geometry.Insets
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
@@ -92,7 +93,7 @@ class AppMainView : View() {
     }
 
     fun showPaymentStats() {
-        val dialog = Dialog<LocalDate?>()
+        val dialog = Dialog<Pair<LocalDate, Area>?>()
         dialog.headerText = messages["mt_paymentReport"]
         dialog.dialogPane.buttonTypes.addAll(ButtonType.OK, ButtonType.CANCEL)
         dialog.dialogPane.styleClass.add("choice-dialog")
@@ -105,19 +106,27 @@ class AppMainView : View() {
         val picker = DatePicker()
         picker.value = LocalDate.now()
 
-        grid.add(Label(messages["msg_paymentReport"]), 0, 0)
+        val areabox = ComboBox<Area>()
+        val areas = QArea().select("number").findList()
+        areabox.items = FXCollections.observableList(areas)
+
+        grid.add(Label(messages["msg_paymentReport1"]), 0, 0)
         grid.add(picker, 1, 0)
+        grid.add(Label(messages["msg_paymentReport2"]), 0, 1)
+        grid.add(areabox, 1, 1)
 
         dialog.dialogPane.content = grid
 
         dialog.resultConverter = Callback { bt ->
-            if(bt == ButtonType.OK) picker.value else null
+            val data = Pair(picker.value, areabox.value)
+            if(bt == ButtonType.OK) data else null
         }
 
         val res = dialog.showAndWait()
         if(res.isPresent) {
-            val date = res.get().toSql()
-            val report = PaymentReport.generate(date)
+            val date = res.get().first.toSql()
+            val area = res.get().second
+            val report = PaymentReport.generate(date, area)
             ReportView(report).openModal()
         }
     }
