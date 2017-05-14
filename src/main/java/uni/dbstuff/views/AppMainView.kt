@@ -95,6 +95,7 @@ class AppMainView : View() {
         val dialog = Dialog<LocalDate?>()
         dialog.headerText = messages["mt_paymentReport"]
         dialog.dialogPane.buttonTypes.addAll(ButtonType.OK, ButtonType.CANCEL)
+        dialog.dialogPane.styleClass.add("choice-dialog")
 
         val grid = GridPane()
         grid.hgap = 10.0
