@@ -40,10 +40,6 @@ class AppMainView : View() {
     }
 
     init {
-        showTablePerson()
-        showTableBuilding()
-        //showTableArea()
-
         pnTabs.selectionModel.selectedItemProperty().addListener {
             _, _, tb -> (tb?.userData as? IRefresher)?.refresh()
         }
