@@ -47,6 +47,8 @@ create table payment_data (
   id                            integer not null,
   area_id                       integer,
   date                          date,
+  initial_data                  double,
+  final_data                    double,
   total                         double,
   constraint pk_payment_data primary key (id),
   foreign key (area_id) references area (id) on delete restrict on update restrict
@@ -61,9 +63,9 @@ create table person (
   ident_code                    integer,
   address                       varchar(255),
   telephone                     varchar(255),
-  persone_role_id               integer,
+  role_id                       integer,
   constraint pk_person primary key (id),
-  foreign key (persone_role_id) references role (id) on delete restrict on update restrict
+  foreign key (role_id) references role (id) on delete restrict on update restrict
 );
 
 create table role (

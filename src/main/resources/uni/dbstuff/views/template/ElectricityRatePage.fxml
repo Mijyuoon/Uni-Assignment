@@ -1,10 +1,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 
-<TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-    <columns>
-        <TableColumn fx:id="colInit" text="%col_electricRateInit" prefWidth="160"/>
-        <TableColumn fx:id="colFinal" text="%col_electricRateFinal" prefWidth="160"/>
-        <TableColumn fx:id="colValue" text="%col_electricRateValue" prefWidth="100"/>
-    </columns>
-</TableView>
+<VBox xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <TableView fx:id="tbData" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colInit" text="%col_electricRateInit" prefWidth="160"/>
+            <TableColumn fx:id="colFinal" text="%col_electricRateFinal" prefWidth="160"/>
+            <TableColumn fx:id="colValue" text="%col_electricRateValue" prefWidth="100"/>
+        </columns>
+    </TableView>
+    <HBox spacing="3">
+        <padding><Insets top="3" bottom="3" left="3" right="3"/></padding>
+        <Button text="%cmd_newPayRate" onAction="#createItem"/>
+    </HBox>
+</VBox>

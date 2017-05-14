@@ -6,6 +6,7 @@ import org.w3c.dom.css.Counter
 import java.sql.Date
 import javax.persistence.Entity
 import javax.persistence.ManyToOne
+import javax.persistence.OneToOne
 import javax.persistence.Table
 
 /**
@@ -14,22 +15,21 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "payment_data")
-class PaymentData: BaseModel(){
-    @NotNull
+class PaymentData: BaseModel() {
     @ManyToOne
     var area: Area? = null
 
     @NotNull
-    var date: Date? = null
+    var date: Date = Date(0L)
+
+    @ManyToOne
+    var initialData: Double = 0.0
+
+    @ManyToOne
+    var finalData: Double = 0.0
 
     @NotNull
-    var initialData: CounterData? = null
-
-    @NotNull
-    var finalData: CounterData? = null
-
-    @NotNull
-    var total: Double? = 0.0
+    var total: Double = 0.0
 
     companion object : PaymentDataFinder()
 }

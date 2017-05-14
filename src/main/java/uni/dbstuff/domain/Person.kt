@@ -8,33 +8,34 @@ import javax.persistence.Entity
 import javax.persistence.ManyToOne
 import javax.persistence.Table
 
-
 @Entity
 @Table(name = "person")
 class Person: BaseModel() {
     @NotNull
-    var firstName: String? = null
+    var firstName: String = ""
 
     @NotNull
-    var middleName: String? = null
+    var middleName: String = ""
 
     @NotNull
-    var lastName: String? = null
+    var lastName: String = ""
 
     @NotNull
-    var birthday: Date? = null
+    var birthday: Date = Date(0L)
 
     @NotNull
-    var identCode: Long? = null
+    var identCode: Long = 0L
 
     @NotNull
-    var address: String? = null
+    var address: String = ""
 
     @NotNull
-    var telephone: String? = null
+    var telephone: String = ""
 
-    @ManyToOne()
-    var personeRole: Role? = null
+    @ManyToOne
+    var role: Role? = null
+
+    override fun toString() = "$firstName $middleName $lastName"
 
     companion object : PersonFinder()
 

@@ -14,13 +14,13 @@ import javax.persistence.Table
 @Table(name = "electricity_rate")
 class ElectricityRate: BaseModel() {
     @NotNull
-    var begin: Date? = null
+    var begin: Date = Date(0L)
 
     @NotNull
-    var finish: Date? = null
+    var finish: Date = Date(0L)
 
     @NotNull
-    var rate: Double? = null
+    var rate: Double = 0.0
 
     companion object : ElectricityRateFinder()
 }

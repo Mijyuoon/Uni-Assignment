@@ -15,12 +15,11 @@ import javax.persistence.Table
 @Table(name = "counter_data")
 class CounterData: BaseModel() {
     @NotNull
-    var date: Date? = null
+    var date: Date = Date(0L)
 
     @NotNull
-    var value: Double? = null
+    var value: Double = 0.0
 
-    @NotNull
     @ManyToOne
     var area: Area? = null
 

@@ -1,21 +1,31 @@
 package uni.dbstuff.views.template
 
 import javafx.beans.property.SimpleStringProperty
+import javafx.collections.FXCollections
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.cell.PropertyValueFactory
+import javafx.scene.layout.VBox
 import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.domain.Area
+import uni.dbstuff.domain.Person
+import uni.dbstuff.domain.query.QArea
 import uni.dbstuff.fxui.ButtonCell
+import uni.dbstuff.utils.TableViewEditFormAbstractor
+import uni.dbstuff.views.AppMainView
+import uni.dbstuff.views.ITabAdder
+import uni.dbstuff.views.form.AreaForm
 
 /**
  * Created by mijyu on 13/05/2017.
  */
-class AreaPage : Fragment() {
-    override val root: TableView<Area> by fxml()
+class AreaPage(adder: ITabAdder) : Fragment() {
+    override val root: VBox by fxml()
+    val tbData: TableView<Area> by fxid()
 
     val colNumber: TableColumn<Area, Number> by fxid()
+    val colOwner: TableColumn<Area, Person> by fxid()
     val colSize: TableColumn<Area, Number> by fxid()
     val colCadNum: TableColumn<Area, Number> by fxid()
     val colCtrId: TableColumn<Area, Number> by fxid()
@@ -24,8 +34,11 @@ class AreaPage : Fragment() {
     val colCounter: TableColumn<Area, String> by fxid()
     val colPayment: TableColumn<Area, String> by fxid()
 
+    val editor = TableViewEditFormAbstractor(tbData) { x -> AreaForm(x) }
+
     init {
         colNumber.cellValueFactory = PropertyValueFactory(Area::number.name)
+        colOwner.cellValueFactory = PropertyValueFactory(Area::owner.name)
         colSize.cellValueFactory = PropertyValueFactory(Area::areaSize.name)
         colCadNum.cellValueFactory = PropertyValueFactory(Area::cadastreNumber.name)
         colCtrId.cellValueFactory = PropertyValueFactory(Area::counterNumber.name)
@@ -37,7 +50,9 @@ class AreaPage : Fragment() {
             SimpleStringProperty(repr)
         }
         colBuilding.cellFactory = Callback {
-            ButtonCell(messages["cmd_openView"])
+            ButtonCell(messages["cmd_openView"]) {
+                x -> adder.showTableBuildingForArea(x)
+            }
         }
 
         colCounter.cellValueFactory = Callback { ob ->
@@ -46,7 +61,7 @@ class AreaPage : Fragment() {
             SimpleStringProperty(repr)
         }
         colCounter.cellFactory = Callback {
-            ButtonCell(messages["cmd_openView"])
+            ButtonCell(messages["cmd_openView"]) { }
         }
 
         colPayment.cellValueFactory = Callback { ob ->
@@ -55,7 +70,14 @@ class AreaPage : Fragment() {
             SimpleStringProperty(repr)
         }
         colPayment.cellFactory = Callback {
-            ButtonCell(messages["cmd_openView"])
+            ButtonCell(messages["cmd_openView"]) { }
         }
+
+        tbData.items = FXCollections.observableList(QArea().findList())
+    }
+
+    fun createItem() {
+        val item = Area()
+        editor.add(item)
     }
 }

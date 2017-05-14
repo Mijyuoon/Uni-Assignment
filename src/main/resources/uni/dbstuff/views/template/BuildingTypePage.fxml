@@ -8,13 +8,11 @@
 <VBox xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
     <TableView fx:id="tbData" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colArea" text="%col_areaNum" prefWidth="70"/>
-            <TableColumn fx:id="colDate" text="%col_counterDataDate" prefWidth="160"/>
-            <TableColumn fx:id="colValue" text="%col_counterDataValue" prefWidth="100"/>
+            <TableColumn fx:id="colType" text="%col_buildTypeName" prefWidth="160"/>
         </columns>
     </TableView>
     <HBox spacing="3">
         <padding><Insets top="3" bottom="3" left="3" right="3"/></padding>
-        <Button text="%cmd_newCounterData" onAction="#createItem"/>
+        <Button text="%cmd_newBuildType" onAction="#createItem"/>
     </HBox>
 </VBox>

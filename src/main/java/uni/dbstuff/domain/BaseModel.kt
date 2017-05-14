@@ -1,6 +1,7 @@
 package uni.dbstuff.domain
 
 import io.ebean.Model
+import org.jetbrains.annotations.NotNull
 import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
@@ -11,5 +12,6 @@ import javax.persistence.MappedSuperclass
 @MappedSuperclass
 abstract class BaseModel: Model() {
     @Id
-    var ID: Long? = 0
+    @NotNull
+    var ID: Long = 0
 }

@@ -13,5 +13,6 @@ class Application : App(AppMainView::class) {
     init {
         FX.messages = localeProps
         importStylesheet("/uni/dbstuff/MainStyles.css")
+        Ebean.getDefaultServer()
     }
 }

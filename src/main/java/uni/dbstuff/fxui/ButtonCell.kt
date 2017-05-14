@@ -9,11 +9,12 @@ import tornadofx.*
 /**
  * Created by mijyu on 13/05/2017.
  */
-class ButtonCell<S,T>(text: String?) : TableCell<S,T>() {
+class ButtonCell<S,T>(text: String?, action: (S) -> Unit) : TableCell<S,T>() {
     private val button = Button()
 
-    var onAction by property<EventHandler<ActionEvent>>()
-    fun onActionProperty() = getProperty(ButtonCell<S,T>::onAction)
+    //var onAction by property<EventHandler<ActionEvent>>()
+    //fun onActionProperty() = getProperty(ButtonCell<S,T>::onAction)
+    var onAction: (S) -> Unit = action
 
     var linkText by property(text)
     fun linkTextProperty() = getProperty(ButtonCell<S,T>::linkText)
@@ -21,7 +22,7 @@ class ButtonCell<S,T>(text: String?) : TableCell<S,T>() {
     init {
         button.addClass("table-cell-button")
         button.textProperty().bind(linkTextProperty())
-        button.onAction = EventHandler { ev -> onAction?.handle(ev) }
+        button.onAction = EventHandler { onAction(rowItem) }
     }
 
     override fun updateItem(item: T, empty: Boolean) {

@@ -1,15 +1,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 
-<TableView xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
-    <columns>
-        <TableColumn fx:id="colLastName" text="%col_personLastName" prefWidth="120"/>
-        <TableColumn fx:id="colFirstName" text="%col_personFirstName" prefWidth="120"/>
-        <TableColumn fx:id="colMidName" text="%col_personMidName" prefWidth="120"/>
-        <TableColumn fx:id="colBirthday" text="%col_personBirthday" prefWidth="160"/>
-        <TableColumn fx:id="colIdent" text="%col_personIdent" prefWidth="100"/>
-        <TableColumn fx:id="colAddress" text="%col_personAddress" prefWidth="210"/>
-        <TableColumn fx:id="colPhoneNum" text="%col_personPhoneNum" prefWidth="100"/>
-        <TableColumn fx:id="colRole" text="%col_personRole" prefWidth="120"/>
-    </columns>
-</TableView>
+<VBox xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <TableView fx:id="tbData" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colLastName" text="%col_personLastName" prefWidth="120"/>
+            <TableColumn fx:id="colFirstName" text="%col_personFirstName" prefWidth="120"/>
+            <TableColumn fx:id="colMidName" text="%col_personMidName" prefWidth="120"/>
+            <TableColumn fx:id="colBirthday" text="%col_personBirthday" prefWidth="160"/>
+            <TableColumn fx:id="colIdent" text="%col_personIdent" prefWidth="100"/>
+            <TableColumn fx:id="colAddress" text="%col_personAddress" prefWidth="210"/>
+            <TableColumn fx:id="colPhoneNum" text="%col_personPhoneNum" prefWidth="100"/>
+            <TableColumn fx:id="colRole" text="%col_personRole" prefWidth="120"/>
+        </columns>
+    </TableView>
+    <HBox spacing="3">
+        <padding><Insets top="3" bottom="3" left="3" right="3"/></padding>
+        <Button text="%cmd_newPerson" onAction="#createItem"/>
+    </HBox>
+</VBox>

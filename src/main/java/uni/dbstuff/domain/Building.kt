@@ -20,7 +20,7 @@ class Building: BaseModel() {
     @ManyToOne
     var area: Area? = null
 
-    var addintionalInfo: String? = null
+    var addintionalInfo: String = ""
 
     companion object : BuildingFinder()
 }

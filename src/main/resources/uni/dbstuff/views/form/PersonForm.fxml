@@ -1,0 +1,41 @@
+<?import tornadofx.Form?>
+<?import tornadofx.Fieldset?>
+<?import tornadofx.Field?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+
+<Form xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+    <Fieldset text="%frm_person">
+        <Field text="%col_personLastName">
+            <TextField fx:id="txLastName"/>
+        </Field>
+        <Field text="%col_personFirstName">
+            <TextField fx:id="txFirstName"/>
+        </Field>
+        <Field text="%col_personMidName">
+            <TextField fx:id="txMidName"/>
+        </Field>
+        <Field text="%col_personBirthday">
+            <DatePicker fx:id="txBirthday" maxWidth="Infinity"/>
+        </Field>
+        <Field text="%col_personIdent">
+            <TextField fx:id="txIdent"/>
+        </Field>
+        <Field text="%col_personAddress">
+            <TextField fx:id="txAddress"/>
+        </Field>
+        <Field text="%col_personPhoneNum">
+            <TextField fx:id="txPhoneNum"/>
+        </Field>
+        <Field text="%col_personRole">
+            <ComboBox fx:id="cbRole" maxWidth="Infinity"/>
+        </Field>
+    </Fieldset>
+    <HBox spacing="10">
+        <Button text="%cmd_save" onAction="#saveForm"/>
+        <Button text="%cmd_cancel" onAction="#close"/>
+    </HBox>
+</Form>
