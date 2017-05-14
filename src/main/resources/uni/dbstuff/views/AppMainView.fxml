@@ -27,6 +27,7 @@
             <Menu text="%menu_statistics">
                 <MenuItem text="%cmd_showAreaStats" accelerator="Ctrl+Shift+1" onAction="#showAreaStats"/>
                 <MenuItem text="%cmd_showPersonStats" accelerator="Ctrl+Shift+2" onAction="#showPersonStats"/>
+                <MenuItem text="%cmd_showPaymentStats" accelerator="Ctrl+Shift+3" onAction="#showPaymentStats"/>
             </Menu>
         </MenuBar>
     </top>

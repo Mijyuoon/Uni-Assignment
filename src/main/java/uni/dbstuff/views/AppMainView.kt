@@ -1,14 +1,19 @@
 package uni.dbstuff.views
 
+import javafx.geometry.Insets
 import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
+import javafx.scene.layout.GridPane
+import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.query.QArea
 import uni.dbstuff.report.AreaReport
+import uni.dbstuff.report.PaymentReport
 import uni.dbstuff.report.PersonReport
-import uni.dbstuff.views.form.RoleForm
+import uni.dbstuff.utils.toSql
 import uni.dbstuff.views.template.*
+import java.time.LocalDate
 
 class AppMainView : View() {
     init { title = messages["app_title"] }
@@ -84,6 +89,36 @@ class AppMainView : View() {
     fun showPersonStats() {
         val report = PersonReport.generate()
         ReportView(report).openModal()
+    }
+
+    fun showPaymentStats() {
+        val dialog = Dialog<LocalDate?>()
+        dialog.headerText = messages["mt_paymentReport"]
+        dialog.dialogPane.buttonTypes.addAll(ButtonType.OK, ButtonType.CANCEL)
+
+        val grid = GridPane()
+        grid.hgap = 10.0
+        grid.vgap = 10.0
+        grid.padding = Insets(20.0, 10.0, 10.0, 10.0)
+
+        val picker = DatePicker()
+        picker.value = LocalDate.now()
+
+        grid.add(Label(messages["msg_paymentReport"]), 0, 0)
+        grid.add(picker, 1, 0)
+
+        dialog.dialogPane.content = grid
+
+        dialog.resultConverter = Callback { bt ->
+            if(bt == ButtonType.OK) picker.value else null
+        }
+
+        val res = dialog.showAndWait()
+        if(res.isPresent) {
+            val date = res.get().toSql()
+            val report = PaymentReport.generate(date)
+            ReportView(report).openModal()
+        }
     }
 }
 
