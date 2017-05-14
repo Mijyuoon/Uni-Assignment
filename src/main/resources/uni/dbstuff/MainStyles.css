@@ -1,3 +1,7 @@
 .table-cell-button {
     -fx-padding: 3px;
 }
+
+.report-text {
+    -fx-font-family: monospace;
+}

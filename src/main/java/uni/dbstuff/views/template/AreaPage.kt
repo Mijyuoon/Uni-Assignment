@@ -82,7 +82,7 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
             }
         }
 
-        tbData.items = FXCollections.observableList(QArea().findList())
+        tbData.items = FXCollections.observableList(QArea().fetch("owner").findList())
     }
 
     fun createItem() {

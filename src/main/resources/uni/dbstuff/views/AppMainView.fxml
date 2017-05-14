@@ -10,19 +10,23 @@
     <top>
         <MenuBar>
             <Menu text="%menu_file">
-                <MenuItem text="%cmd_exit" accelerator="Ctrl+X" onAction="#appExit"/>
+                <MenuItem text="%cmd_exit" accelerator="Ctrl+Q" onAction="#appExit"/>
             </Menu>
             <Menu text="%menu_showTable">
-                <MenuItem text="%cmd_showAreas" onAction="#showTableArea"/>
-                <MenuItem text="%cmd_showPeople" onAction="#showTablePerson"/>
-                <MenuItem text="%cmd_showBuildings" onAction="#showTableBuilding"/>
-                <MenuItem text="%cmd_showCtrData" onAction="#showTableCtrData"/>
-                <MenuItem text="%cmd_showPayments" onAction="#showTablePayment"/>
+                <MenuItem text="%cmd_showAreas" accelerator="Ctrl+1" onAction="#showTableArea"/>
+                <MenuItem text="%cmd_showPeople" accelerator="Ctrl+2" onAction="#showTablePerson"/>
+                <MenuItem text="%cmd_showBuildings" accelerator="Ctrl+3" onAction="#showTableBuilding"/>
+                <MenuItem text="%cmd_showCtrData" accelerator="Ctrl+4" onAction="#showTableCtrData"/>
+                <MenuItem text="%cmd_showPayments" accelerator="Ctrl+5" onAction="#showTablePayment"/>
                 <SeparatorMenuItem/>
-                <MenuItem text="%cmd_editBuildTypes" onAction="#showTableBuildType"/>
-                <MenuItem text="%cmd_editPersonRoles" onAction="#showTablePersonRole"/>
+                <MenuItem text="%cmd_editBuildTypes" accelerator="Ctrl+6" onAction="#showTableBuildType"/>
+                <MenuItem text="%cmd_editPersonRoles" accelerator="Ctrl+7" onAction="#showTablePersonRole"/>
                 <SeparatorMenuItem/>
-                <MenuItem text="%cmd_showPayRates" onAction="#showTablePayRate"/>
+                <MenuItem text="%cmd_showPayRates" accelerator="Ctrl+8" onAction="#showTablePayRate"/>
+            </Menu>
+            <Menu text="%menu_statistics">
+                <MenuItem text="%cmd_showAreaStats" accelerator="Ctrl+Shift+1" onAction="#showAreaStats"/>
+                <MenuItem text="%cmd_showPersonStats" accelerator="Ctrl+Shift+2" onAction="#showPersonStats"/>
             </Menu>
         </MenuBar>
     </top>

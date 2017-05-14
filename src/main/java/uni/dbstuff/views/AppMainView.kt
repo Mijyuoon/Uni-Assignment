@@ -4,6 +4,9 @@ import javafx.scene.control.*
 import javafx.scene.layout.BorderPane
 import tornadofx.*
 import uni.dbstuff.domain.Area
+import uni.dbstuff.domain.query.QArea
+import uni.dbstuff.report.AreaReport
+import uni.dbstuff.report.PersonReport
 import uni.dbstuff.views.form.RoleForm
 import uni.dbstuff.views.template.*
 
@@ -33,10 +36,10 @@ class AppMainView : View() {
     init {
         showTablePerson()
         showTableBuilding()
-        showTableArea()
+        //showTableArea()
 
         pnTabs.selectionModel.selectedItemProperty().addListener {
-            _, _, tb -> (tb.userData as IRefresher).refresh()
+            _, _, tb -> (tb?.userData as? IRefresher)?.refresh()
         }
     }
 
@@ -64,6 +67,24 @@ class AppMainView : View() {
     fun showTablePayRate() = addTab(messages["tab_payRates"], ElectricityRatePage())
     fun showTableBuildType() = addTab(messages["tab_buildTypes"], BuildingTypePage())
     fun showTablePersonRole() = addTab(messages["tab_personRoles"], RolePage())
+
+    fun showAreaStats() {
+        val areas = QArea().select("number").findList()
+        val dialog = ChoiceDialog(null, areas)
+        dialog.headerText = messages["mt_areaReport"]
+        dialog.contentText = messages["msg_areaReport"]
+
+        val res = dialog.showAndWait()
+        if(res.isPresent) {
+            val report = AreaReport.generate(res.get())
+            ReportView(report).openModal()
+        }
+    }
+
+    fun showPersonStats() {
+        val report = PersonReport.generate()
+        ReportView(report).openModal()
+    }
 }
 
 

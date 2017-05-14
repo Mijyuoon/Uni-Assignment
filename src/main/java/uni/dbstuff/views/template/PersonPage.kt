@@ -10,9 +10,11 @@ import javafx.util.Callback
 import tornadofx.*
 import uni.dbstuff.domain.Person
 import uni.dbstuff.domain.query.QPerson
+import uni.dbstuff.fxui.FormattedCell
 import uni.dbstuff.utils.TableViewEditFormAbstractor
 import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.PersonForm
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -37,10 +39,14 @@ class PersonPage : Fragment(), IRefresher {
         colLastName.cellValueFactory = PropertyValueFactory(Person::lastName.name)
         colFirstName.cellValueFactory = PropertyValueFactory(Person::firstName.name)
         colMidName.cellValueFactory = PropertyValueFactory(Person::middleName.name)
-        colBirthday.cellValueFactory = PropertyValueFactory(Person::birthday.name)
         colIdent.cellValueFactory = PropertyValueFactory(Person::identCode.name)
         colAddress.cellValueFactory = PropertyValueFactory(Person::address.name)
         colPhoneNum.cellValueFactory = PropertyValueFactory(Person::telephone.name)
+
+        colBirthday.cellValueFactory = PropertyValueFactory(Person::birthday.name)
+        colBirthday.cellFactory = Callback {
+            FormattedCell(SimpleDateFormat(messages["format_date"]))
+        }
 
         colRole.cellValueFactory = Callback { ob ->
             val data = ob.value.role?.roleName

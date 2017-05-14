@@ -7,10 +7,12 @@ import java.util.*
 
 class Application : App(AppMainView::class) {
     companion object {
-        val localeProps: ResourceBundle = ResourceBundle.getBundle("uni.dbstuff.Language", Locale("ru"))
+        val appLocale = Locale("ru")
+        val localeProps = ResourceBundle.getBundle("uni.dbstuff.Language", appLocale)
     }
 
     init {
+        Locale.setDefault(appLocale)
         FX.messages = localeProps
         importStylesheet("/uni/dbstuff/MainStyles.css")
         Ebean.getDefaultServer()
