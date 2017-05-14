@@ -62,7 +62,9 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
             SimpleStringProperty(repr)
         }
         colCounter.cellFactory = Callback {
-            ButtonCell(messages["cmd_openView"]) { }
+            ButtonCell(messages["cmd_openView"]) {
+                x -> adder.showTableCtrDataForArea(x)
+            }
         }
 
         colPayment.cellValueFactory = Callback { ob ->
@@ -71,7 +73,9 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
             SimpleStringProperty(repr)
         }
         colPayment.cellFactory = Callback {
-            ButtonCell(messages["cmd_openView"]) { }
+            ButtonCell(messages["cmd_openView"]) {
+                x -> adder.showTablePaymentForArea(x)
+            }
         }
 
         tbData.items = FXCollections.observableList(QArea().findList())

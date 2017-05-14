@@ -1,7 +1,6 @@
 package uni.dbstuff.views.template
 
 import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleObjectProperty
 import javafx.collections.FXCollections
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
@@ -9,11 +8,10 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.layout.VBox
 import javafx.util.Callback
 import tornadofx.*
-import uni.dbstuff.domain.CounterData
+import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.PaymentData
 import uni.dbstuff.domain.query.QPaymentData
 import uni.dbstuff.fxui.FormattedCell
-import uni.dbstuff.toSql
 import uni.dbstuff.utils.TableViewEditFormAbstractor
 import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.PaymentDataForm
@@ -23,7 +21,7 @@ import java.util.Date
 /**
  * Created by mijyu on 13/05/2017.
  */
-class PaymentDataPage : Fragment(), IRefresher {
+class PaymentDataPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<PaymentData> by fxid()
 
@@ -51,7 +49,13 @@ class PaymentDataPage : Fragment(), IRefresher {
 
         colTotal.cellValueFactory = PropertyValueFactory(PaymentData::total.name)
 
-        tbData.items = FXCollections.observableList(QPaymentData().findList())
+        val items = if(area == null) {
+            QPaymentData().findList()
+        } else {
+            QPaymentData().area.equalTo(area).findList()
+        }
+
+        tbData.items = FXCollections.observableList(items)
     }
 
     fun createItem() {

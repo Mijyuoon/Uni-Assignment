@@ -3,6 +3,7 @@ package uni.dbstuff.views.form
 import javafx.scene.control.TextField
 import tornadofx.*
 import uni.dbstuff.domain.Role
+import uni.dbstuff.utils.SafeParser
 
 /**
  * Created by mijyu on 13/05/2017.
@@ -16,8 +17,7 @@ class RoleForm(var source: Role) : BaseForm() {
     }
 
     override fun onSaveForm() {
-        val name = txName.text
-        if(name.isEmpty()) return
+        val name = SafeParser.string(txName.text, messages["col_personRoleName"]) ?: return
 
         source.roleName = name
         setSaved()

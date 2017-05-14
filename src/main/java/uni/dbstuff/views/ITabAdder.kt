@@ -7,4 +7,6 @@ import uni.dbstuff.domain.Area
  */
 interface ITabAdder {
     fun showTableBuildingForArea(area: Area)
+    fun showTableCtrDataForArea(area: Area)
+    fun showTablePaymentForArea(area: Area)
 }

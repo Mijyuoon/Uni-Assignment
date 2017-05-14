@@ -18,6 +18,16 @@ class AppMainView : View() {
             val title = messages["tab_buildingsArea"]
             addTab(title.format(area.number), BuildingPage(area))
         }
+
+        override fun showTableCtrDataForArea(area: Area) {
+            val title = messages["tab_counterDataArea"]
+            addTab(title.format(area.number), CounterDataPage(area))
+        }
+
+        override fun showTablePaymentForArea(area: Area) {
+            val title = messages["tab_paymentDataArea"]
+            addTab(title.format(area.number), PaymentDataPage(area))
+        }
     }
 
     init {
@@ -27,7 +37,6 @@ class AppMainView : View() {
 
         pnTabs.selectionModel.selectedItemProperty().addListener {
             _, _, tb -> (tb.userData as IRefresher).refresh()
-            System.out.println("works?")
         }
     }
 

@@ -4,10 +4,12 @@ import javafx.collections.FXCollections
 import javafx.scene.control.CheckBox
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
+import tornadofx.*
 import uni.dbstuff.utils.Const
 import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.Person
 import uni.dbstuff.domain.query.QPerson
+import uni.dbstuff.utils.SafeParser
 
 /**
  * Created by mijyu on 13/05/2017.
@@ -34,28 +36,18 @@ class AreaForm(var source: Area) : BaseForm() {
     }
 
     override fun onSaveForm() {
-        val number = txNum.text
-        if(!number.matches(Const.intRx)) return
-
+        val number = SafeParser.int(txNum.text, messages["col_areaNum"]) { x -> x < 0 } ?: return
         val owner = cbOwner.value
-        if(owner == null) return
-
-        val size = txSize.text
-        if(!size.matches(Const.floatRx)) return
-
-        val cadNum = txCadNum.text
-        if(!cadNum.matches(Const.intRx)) return
-
-        val ctrId = txCtrId.text
-        if(!ctrId.matches(Const.intRx)) return
-
+        val size = SafeParser.double(txSize.text, messages["col_areaSize"]) { x -> x < 0 } ?: return
+        val cadNum = SafeParser.long(txCadNum.text, messages["col_areaCadNum"]) { x -> x < 0 } ?: return
+        val ctrId = SafeParser.long(txCtrId.text, messages["col_areaCtrId"]) { x -> x < 0 } ?: return
         val water = ciWater.isSelected
 
-        source.number = number.toInt()
+        source.number = number
         source.owner = owner
-        source.areaSize = size.toDouble()
-        source.cadastreNumber = cadNum.toLong()
-        source.counterNumber = ctrId.toLong()
+        source.areaSize = size
+        source.cadastreNumber = cadNum
+        source.counterNumber = ctrId
         source.waterSupply = water
 
         setSaved()

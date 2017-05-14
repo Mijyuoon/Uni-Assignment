@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.layout.VBox
 import javafx.util.Callback
 import tornadofx.*
+import uni.dbstuff.domain.Area
 import uni.dbstuff.domain.CounterData
 import uni.dbstuff.domain.query.QCounterData
 import uni.dbstuff.fxui.FormattedCell
@@ -20,7 +21,7 @@ import java.util.*
 /**
  * Created by mijyu on 13/05/2017.
  */
-class CounterDataPage : Fragment(), IRefresher {
+class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<CounterData> by fxid()
 
@@ -43,7 +44,13 @@ class CounterDataPage : Fragment(), IRefresher {
 
         colValue.cellValueFactory = PropertyValueFactory(CounterData::value.name)
 
-        tbData.items = FXCollections.observableList(QCounterData().findList())
+        val items = if(area == null) {
+            QCounterData().findList()
+        } else {
+            QCounterData().area.equalTo(area).findList()
+        }
+
+        tbData.items = FXCollections.observableList(items)
     }
 
     fun createItem() {

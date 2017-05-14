@@ -3,12 +3,12 @@ package uni.dbstuff.views.form
 import javafx.collections.FXCollections
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
-import javafx.scene.control.TextArea
 import javafx.scene.control.TextField
+import tornadofx.*
 import uni.dbstuff.domain.*
 import uni.dbstuff.domain.query.QArea
-import uni.dbstuff.toSql
-import uni.dbstuff.utils.Const
+import uni.dbstuff.utils.toSql
+import uni.dbstuff.utils.SafeParser
 
 /**
  * Created by mijyu on 14/05/2017.
@@ -29,16 +29,12 @@ class CounterDataForm(var source: CounterData) : BaseForm() {
 
     override fun onSaveForm() {
         val area = cbArea.value
-        if(area == null) return
-
         val date = txDate.value
-
-        val value = txValue.text
-        if(!value.matches(Const.floatRx)) return
+        val value = SafeParser.double(txValue.text, messages["col_counterDataValue"]) { x -> x < 0 } ?: return
 
         source.area = area
         source.date = date.toSql()
-        source.value = value.toDouble()
+        source.value = value
 
         setSaved()
     }

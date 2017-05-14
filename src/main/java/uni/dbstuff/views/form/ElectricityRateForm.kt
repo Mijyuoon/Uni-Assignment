@@ -1,16 +1,11 @@
 package uni.dbstuff.views.form
 
-import javafx.collections.FXCollections
-import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
 import javafx.scene.control.TextField
+import tornadofx.*
 import uni.dbstuff.domain.ElectricityRate
-import uni.dbstuff.domain.Person
-import uni.dbstuff.domain.Role
-import uni.dbstuff.domain.query.QRole
-import uni.dbstuff.matches
-import uni.dbstuff.toSql
-import uni.dbstuff.utils.Const
+import uni.dbstuff.utils.toSql
+import uni.dbstuff.utils.SafeParser
 
 /**
  * Created by mijyu on 14/05/2017.
@@ -27,15 +22,13 @@ class ElectricityRateForm(var source: ElectricityRate) : BaseForm() {
     }
 
     override fun onSaveForm() {
-        val begin = txBegin.value
-        val finish = txFinish.value
+        val begin = txBegin.value.toSql()
+        val finish = txFinish.value.toSql()
+        val rate = SafeParser.double(txRate.text, messages["col_electricRateValue"]) { x -> x < 0 } ?: return
 
-        val rate = txRate.text
-        if(!rate.matches(Const.floatRx)) return
-
-        source.begin = begin.toSql()
-        source.finish = finish.toSql()
-        source.rate = rate.toDouble()
+        source.begin = begin
+        source.finish = finish
+        source.rate = rate
 
         setSaved()
     }

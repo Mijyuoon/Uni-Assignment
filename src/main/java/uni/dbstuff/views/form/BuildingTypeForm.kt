@@ -4,6 +4,7 @@ import javafx.scene.control.TextField
 import tornadofx.*
 import uni.dbstuff.domain.BuildingType
 import uni.dbstuff.domain.Role
+import uni.dbstuff.utils.SafeParser
 
 /**
  * Created by mijyu on 13/05/2017.
@@ -16,8 +17,7 @@ class BuildingTypeForm(var source: BuildingType) : BaseForm() {
     }
 
     override fun onSaveForm() {
-        val name = txName.text
-        if(name.isEmpty()) return
+        val name = SafeParser.string(txName.text, messages["col_buildTypeName"]) ?: return
 
         source.buildingTypeName = name
         setSaved()

@@ -1,7 +1,5 @@
-package uni.dbstuff
+package uni.dbstuff.utils
 
-import javafx.event.EventHandler
-import javafx.scene.control.TableView
 import java.time.LocalDate
 import java.util.*
 
