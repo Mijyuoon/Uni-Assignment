@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>uni.dbstuff</OriginalElement>
+  <nodes>
+    <node x="0.0" y="738.0">uni.dbstuff.views.template.ElectricityRatePage</node>
+    <node x="1476.0" y="683.0">uni.dbstuff.views.template.PersonPage</node>
+    <node x="1840.0" y="1222.0">uni.dbstuff.domain.Area</node>
+    <node x="1151.5" y="0.0">uni.dbstuff.views.form.BaseForm</node>
+    <node x="345.0" y="2090.0">uni.dbstuff.domain.PaymentData.Companion</node>
+    <node x="1345.0" y="2164.0">uni.dbstuff.report.PersonReport</node>
+    <node x="0.0" y="1277.5">uni.dbstuff.domain.PaymentData</node>
+    <node x="1401.75" y="551.0">uni.dbstuff.views.IRefresher</node>
+    <node x="806.0000000000001" y="760.0">uni.dbstuff.views.template.RolePage</node>
+    <node x="1972.0" y="266.0">uni.dbstuff.views.form.PaymentDataForm</node>
+    <node x="360.0" y="705.0">uni.dbstuff.views.template.PaymentDataPage</node>
+    <node x="690.0" y="2090.0">uni.dbstuff.domain.Role.Companion</node>
+    <node x="1639.0" y="1991.0">uni.dbstuff.utils.Const</node>
+    <node x="115.0" y="2090.0">uni.dbstuff.domain.ElectricityRate.Companion</node>
+    <node x="1837.0" y="2164.0">uni.dbstuff.report.AreaReport</node>
+    <node x="1363.0" y="1991.0">uni.dbstuff.views.ReportView</node>
+    <node x="925.9999999999999" y="255.0">uni.dbstuff.views.form.AreaForm</node>
+    <node x="1898.0" y="672.0">uni.dbstuff.views.template.AreaPage</node>
+    <node x="601.9999999999999" y="310.0">uni.dbstuff.views.form.BuildingTypeForm</node>
+    <node x="320.0" y="1299.5">uni.dbstuff.domain.Building</node>
+    <node x="500.0" y="1563.0">uni.dbstuff.utils.TableViewEditFormAbstractor</node>
+    <node x="460.0" y="2090.0">uni.dbstuff.domain.Building.Companion</node>
+    <node x="600.0" y="1299.0">uni.dbstuff.domain.Role</node>
+    <node x="2386.0" y="288.0">uni.dbstuff.views.form.CounterDataForm</node>
+    <node x="0.0" y="2090.0">uni.dbstuff.domain.BuildingType.Companion</node>
+    <node x="1204.0" y="1563.0">uni.dbstuff.utils.SafeParser</node>
+    <node x="2260.0" y="1299.0">uni.dbstuff.domain.BuildingType</node>
+    <node x="1262.0" y="233.0">uni.dbstuff.views.form.PersonForm</node>
+    <node x="1160.0" y="1233.0">uni.dbstuff.domain.Person</node>
+    <node x="1089.0" y="2164.0">uni.dbstuff.fxui.FormattedCell</node>
+    <node x="945.0" y="1991.0">uni.dbstuff.fxui.ButtonCell</node>
+    <node x="2385.0" y="760.0">uni.dbstuff.views.template.BuildingTypePage</node>
+    <node x="590.0" y="2164.0">uni.dbstuff.utils.ExtensionsKt</node>
+    <node x="2701.0" y="727.0">uni.dbstuff.views.template.BuildingPage</node>
+    <node x="880.0" y="1299.5">uni.dbstuff.domain.CounterData</node>
+    <node x="230.0" y="2090.0">uni.dbstuff.domain.Area.Companion</node>
+    <node x="230.0" y="288.0">uni.dbstuff.views.form.ElectricityRateForm</node>
+    <node x="236.0" y="2164.0">uni.dbstuff.views.ITabAdder</node>
+    <node x="1101.5" y="1078.0">uni.dbstuff.domain.BaseModel</node>
+    <node x="831.0" y="2164.0">uni.dbstuff.report.PaymentReport</node>
+    <node x="1658.0" y="288.0">uni.dbstuff.views.form.BuildingForm</node>
+    <node x="0.0" y="2305.0">uni.dbstuff.utils.TypeAliasKt</node>
+    <node x="0.0" y="1563.0">uni.dbstuff.views.AppMainView</node>
+    <node x="1592.0" y="2164.0">uni.dbstuff.Application</node>
+    <node x="1560.0" y="1299.5">uni.dbstuff.domain.ElectricityRate</node>
+    <node x="0.0" y="2164.0">uni.dbstuff.fxui.TableEditRow</node>
+    <node x="575.0" y="2090.0">uni.dbstuff.domain.Person.Companion</node>
+    <node x="805.0" y="2090.0">uni.dbstuff.domain.CounterData.Companion</node>
+    <node x="0.0" y="310.0">uni.dbstuff.views.form.RoleForm</node>
+    <node x="395.0" y="1991.0">uni.dbstuff.domain.finder</node>
+    <node x="1075.0" y="727.0">uni.dbstuff.views.template.CounterDataPage</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uni.dbstuff.views.form.BuildingForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-81.5" />
+      <point x="1805.0" y="203.0" />
+      <point x="1310.3125" y="203.0" />
+      <point x="43.3125" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Person.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="622.5" y="2060.0" />
+      <point x="470.625" y="2060.0" />
+      <point x="20.625" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.PaymentDataPage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-147.5" />
+      <point x="573.0" y="632.0" />
+      <point x="1427.8125" y="632.0" />
+      <point x="-43.4375" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.CounterDataForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-81.5" />
+      <point x="2558.0" y="183.0" />
+      <point x="1368.0625" y="183.0" />
+      <point x="101.0625" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.PersonForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-136.5" />
+      <point x="1450.0" y="213.0" />
+      <point x="1281.4375" y="213.0" />
+      <point x="14.4375" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.ElectricityRate" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-70.5" />
+      <point x="1690.0" y="1192.0" />
+      <point x="1209.4375" y="1192.0" />
+      <point x="29.4375" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.BuildingTypePage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-92.5" />
+      <point x="2533.0" y="632.0" />
+      <point x="1514.6875" y="632.0" />
+      <point x="43.4375" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.PersonPage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-169.5" />
+      <point x="1677.0" y="652.0" />
+      <point x="1479.9375" y="652.0" />
+      <point x="8.6875" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.AreaForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-114.5" />
+      <point x="1084.0" y="213.0" />
+      <point x="1252.5625" y="213.0" />
+      <point x="-14.4375" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.ElectricityRate.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="162.5" y="2050.0" />
+      <point x="415.625" y="2050.0" />
+      <point x="-34.375" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Role" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-71.0" />
+      <point x="730.0" y="1192.0" />
+      <point x="1150.5625" y="1192.0" />
+      <point x="-29.4375" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.domain.PaymentData.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="392.5" y="2070.0" />
+      <point x="443.125" y="2070.0" />
+      <point x="-6.875" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.BuildingType" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-71.0" />
+      <point x="2390.0" y="1172.0" />
+      <point x="1248.6875" y="1172.0" />
+      <point x="68.6875" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.RolePage" target="uni.dbstuff.views.IRefresher">
+      <point x="-1.1368683772161603E-13" y="-92.5" />
+      <point x="930.5" y="642.0" />
+      <point x="1445.1875" y="642.0" />
+      <point x="-26.0625" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.BuildingPage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-125.5" />
+      <point x="2879.0" y="622.0" />
+      <point x="1532.0625" y="622.0" />
+      <point x="60.8125" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.BuildingType.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="47.5" y="2040.0" />
+      <point x="401.875" y="2040.0" />
+      <point x="-48.125" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.CounterDataPage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-125.5" />
+      <point x="1265.5" y="652.0" />
+      <point x="1462.5625" y="652.0" />
+      <point x="-8.6875" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.AreaPage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-180.5" />
+      <point x="2131.5" y="642.0" />
+      <point x="1497.3125" y="642.0" />
+      <point x="26.0625" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.PaymentData" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-92.5" />
+      <point x="150.0" y="1172.0" />
+      <point x="1111.3125" y="1172.0" />
+      <point x="-68.6875" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.PaymentDataForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-103.5" />
+      <point x="2169.0" y="193.0" />
+      <point x="1339.1875" y="193.0" />
+      <point x="72.1875" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Person" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-137.0" />
+      <point x="1350.0" y="1202.0" />
+      <point x="1189.8125" y="1202.0" />
+      <point x="9.8125" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.ElectricityRateForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-81.5" />
+      <point x="406.0" y="193.0" />
+      <point x="1194.8125" y="193.0" />
+      <point x="-72.1875" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Building.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="507.5" y="2070.0" />
+      <point x="456.875" y="2070.0" />
+      <point x="6.875" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Role.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="737.5" y="2050.0" />
+      <point x="484.375" y="2050.0" />
+      <point x="34.375" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.CounterData" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-70.5" />
+      <point x="1010.0" y="1202.0" />
+      <point x="1170.1875" y="1202.0" />
+      <point x="-9.8125" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.BuildingTypeForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-59.5" />
+      <point x="753.9999999999999" y="203.0" />
+      <point x="1223.6875" y="203.0" />
+      <point x="-43.3125" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.form.RoleForm" target="uni.dbstuff.views.form.BaseForm">
+      <point x="0.0" y="-59.5" />
+      <point x="105.0" y="183.0" />
+      <point x="1165.9375" y="183.0" />
+      <point x="-101.0625" y="81.5" />
+    </edge>
+    <edge source="uni.dbstuff.views.template.ElectricityRatePage" target="uni.dbstuff.views.IRefresher">
+      <point x="0.0" y="-114.5" />
+      <point x="170.0" y="622.0" />
+      <point x="1410.4375" y="622.0" />
+      <point x="-60.8125" y="25.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Area.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="277.5" y="2060.0" />
+      <point x="429.375" y="2060.0" />
+      <point x="-20.625" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Building" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-70.5" />
+      <point x="450.0" y="1182.0" />
+      <point x="1130.9375" y="1182.0" />
+      <point x="-49.0625" y="37.0" />
+    </edge>
+    <edge source="uni.dbstuff.domain.CounterData.Companion" target="uni.dbstuff.domain.finder">
+      <point x="0.0" y="-14.5" />
+      <point x="852.5" y="2040.0" />
+      <point x="498.125" y="2040.0" />
+      <point x="48.125" y="14.5" />
+    </edge>
+    <edge source="uni.dbstuff.domain.Area" target="uni.dbstuff.domain.BaseModel">
+      <point x="0.0" y="-148.0" />
+      <point x="2040.0" y="1182.0" />
+      <point x="1229.0625" y="1182.0" />
+      <point x="49.0625" y="37.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3033135089209856" x="1528.5" y="1167.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
