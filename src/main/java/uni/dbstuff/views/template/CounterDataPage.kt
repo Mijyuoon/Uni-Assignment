@@ -58,5 +58,10 @@ class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
         editor.add(item)
     }
 
+    fun deleteItem() {
+        val item = tbData.selectionModel.selectedItem ?: return
+        editor.delete(item)
+    }
+
     override fun refresh() = Unit
 }

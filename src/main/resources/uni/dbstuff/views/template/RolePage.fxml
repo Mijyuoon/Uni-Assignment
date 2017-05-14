@@ -14,5 +14,6 @@
     <HBox spacing="3">
         <padding><Insets top="3" bottom="3" left="3" right="3"/></padding>
         <Button text="%cmd_newPersonRole" onAction="#createItem"/>
+        <Button text="%cmd_deleteSelected" onAction="#deleteItem"/>
     </HBox>
 </VBox>
