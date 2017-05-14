@@ -30,7 +30,7 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
     val colSize: TableColumn<Area, Number> by fxid()
     val colCadNum: TableColumn<Area, Number> by fxid()
     val colCtrId: TableColumn<Area, Number> by fxid()
-    val colWater: TableColumn<Area, Boolean> by fxid()
+    val colWater: TableColumn<Area, String> by fxid()
     val colBuilding: TableColumn<Area, String> by fxid()
     val colCounter: TableColumn<Area, String> by fxid()
     val colPayment: TableColumn<Area, String> by fxid()
@@ -43,7 +43,11 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
         colSize.cellValueFactory = PropertyValueFactory(Area::areaSize.name)
         colCadNum.cellValueFactory = PropertyValueFactory(Area::cadastreNumber.name)
         colCtrId.cellValueFactory = PropertyValueFactory(Area::counterNumber.name)
-        colWater.cellValueFactory = PropertyValueFactory(Area::waterSupply.name)
+
+        colWater.cellValueFactory = Callback { ob ->
+            val msg = "bool_${ob.value.waterSupply}"
+            SimpleStringProperty(messages[msg])
+        }
 
         colBuilding.cellValueFactory = Callback { ob ->
             val data = ob.value.buildings.count()

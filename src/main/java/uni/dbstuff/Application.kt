@@ -7,7 +7,7 @@ import java.util.*
 
 class Application : App(AppMainView::class) {
     companion object {
-        val localeProps: ResourceBundle = ResourceBundle.getBundle("uni.dbstuff.Language", Locale("en"))
+        val localeProps: ResourceBundle = ResourceBundle.getBundle("uni.dbstuff.Language", Locale("ru"))
     }
 
     init {
