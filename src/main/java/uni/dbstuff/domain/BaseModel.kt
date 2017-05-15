@@ -6,11 +6,13 @@ import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
 /**
- * Created by Max on 5/5/2017.
+ * Базовый класс моделей объектов
  */
-
 @MappedSuperclass
 abstract class BaseModel: Model() {
+    /**
+     * Уникальный код объекта
+     */
     @Id
     @NotNull
     var ID: Long = 0

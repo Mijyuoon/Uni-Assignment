@@ -6,7 +6,8 @@ import uni.dbstuff.domain.Role
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Форма редактирования записей таблицы "Роли садоводов"
+ * @param source Запись для редактирования
  */
 class RoleForm(var source: Role) : BaseForm() {
 

@@ -3,7 +3,7 @@ package uni.dbstuff.views
 import uni.dbstuff.domain.Area
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Интерфейс для создания вкладок извне главного окна
  */
 interface ITabAdder {
     fun showTableBuildingForArea(area: Area)

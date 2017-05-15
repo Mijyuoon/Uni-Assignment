@@ -16,12 +16,21 @@ import uni.dbstuff.utils.toSql
 import uni.dbstuff.views.template.*
 import java.time.LocalDate
 
+/**
+ * Главное окно приложения.
+ */
 class AppMainView : View() {
     init { title = messages["app_title"] }
     override val root: BorderPane by fxml()
 
+    /**
+     * Главная панель вкладок
+     */
     val pnTabs: TabPane by fxid()
 
+    /**
+     * Объект с функциями для создания вкладок извне главного окна
+     */
     val tabAdder = object : ITabAdder {
         override fun showTableBuildingForArea(area: Area) {
             val title = messages["tab_buildingsArea"]
@@ -39,12 +48,20 @@ class AppMainView : View() {
         }
     }
 
+    /**
+     * Главный инициализатор
+     */
     init {
         pnTabs.selectionModel.selectedItemProperty().addListener {
             _, _, tb -> (tb?.userData as? IRefresher)?.refresh()
         }
     }
 
+    /**
+     * Добавляет новую вкладку в главное окно программы
+     * @param text Название вкладки
+     * @param content Содержимое вкладки
+     */
     private fun addTab(text: String, content: Fragment) {
         val hasTab = pnTabs.tabs.find { t -> t.text == text }
 
@@ -59,17 +76,54 @@ class AppMainView : View() {
         }
     }
 
+    /**
+     * Выходит из программы
+     */
     fun appExit() = System.exit(0)
 
+    /**
+     * Показывает вкладку "Участки"
+     */
     fun showTableArea() = addTab(messages["tab_areas"], AreaPage(tabAdder))
+
+    /**
+     * Показывает вкладку "Садоводы"
+     */
     fun showTablePerson() = addTab(messages["tab_people"], PersonPage())
+
+    /**
+     * Показывает вкладку "Постройки"
+     */
     fun showTableBuilding() = addTab(messages["tab_buildings"], BuildingPage())
+
+    /**
+     * Показывает вкладку "Показания счётчика"
+     */
     fun showTableCtrData() = addTab(messages["tab_counterData"], CounterDataPage())
+
+    /**
+     * Показывает вкладку "Оплата за электричество"
+     */
     fun showTablePayment() = addTab(messages["tab_paymentData"], PaymentDataPage())
+
+    /**
+     * Показывает вкладку "Тарифы электроснабжения"
+     */
     fun showTablePayRate() = addTab(messages["tab_payRates"], ElectricityRatePage())
+
+    /**
+     * Показывает вкладку "Типы построек"
+     */
     fun showTableBuildType() = addTab(messages["tab_buildTypes"], BuildingTypePage())
+
+    /**
+     * Показывает вкладку "Роли садоводов"
+     */
     fun showTablePersonRole() = addTab(messages["tab_personRoles"], RolePage())
 
+    /**
+     * Формирует информационную выписку по участку
+     */
     fun showAreaStats() {
         val areas = QArea().select("number").findList()
         val dialog = ChoiceDialog(null, areas)
@@ -83,11 +137,17 @@ class AppMainView : View() {
         }
     }
 
+    /**
+     * Формирует информационную выписку о садоводах
+     */
     fun showPersonStats() {
         val report = PersonReport.generate()
         ReportView(report).openModal()
     }
 
+    /**
+     * Формирует отчёт по задолженности
+     */
     fun showPaymentStats() {
         val dialog = Dialog<Pair<LocalDate, Area>?>()
         dialog.headerText = messages["mt_paymentReport"]

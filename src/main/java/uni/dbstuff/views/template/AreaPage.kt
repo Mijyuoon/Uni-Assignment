@@ -19,7 +19,8 @@ import uni.dbstuff.views.ITabAdder
 import uni.dbstuff.views.form.AreaForm
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Участки"
+ * @param adder Объект с функциями для создания вкладок извне главного окна
  */
 class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
     override val root: VBox by fxml()

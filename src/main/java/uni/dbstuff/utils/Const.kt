@@ -4,12 +4,13 @@ import java.sql.Date
 import java.time.LocalDate
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Объект, содержащий различные константы и генераторы констант
  */
-
 object Const {
-    val intRx = Regex("[0-9]+")
-    val floatRx = Regex("[0-9]+([,.][0-9]+)?")
-
+    /**
+     * возвращает текущую дату типа {@link java.sql.Date}
+     * @return Текущая дата типа {@link java.sql.Date}
+     * @see java.sql.Date
+     */
     fun curDate() = Date.valueOf(LocalDate.now())
 }

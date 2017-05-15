@@ -11,24 +11,38 @@ import javax.persistence.OneToOne
 import javax.persistence.Table
 
 /**
- * Created by Max on 5/5/2017.
+ * Модель объекта "Оплата за электричество"
  */
-
 @Entity
 @Table(name = "payment_data")
 class PaymentData: BaseModel() {
+    /**
+     * Оплативший участок
+     */
     @ManyToOne
     var area: Area? = null
 
+    /**
+     * Дата оплаты
+     */
     @NotNull
     var date: Date = Const.curDate()
 
+    /**
+     * Начальные показания счётчика
+     */
     @ManyToOne
     var initialData: Double = 0.0
 
+    /**
+     * Конечные показания счётчика
+     */
     @ManyToOne
     var finalData: Double = 0.0
 
+    /**
+     * Сумма оплаты
+     */
     @NotNull
     var total: Double = 0.0
 

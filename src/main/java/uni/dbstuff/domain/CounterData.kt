@@ -9,18 +9,26 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 /**
- * Created by Max on 5/5/2017.
+ * Модель объекта "Показания электросчётчика"
  */
-
 @Entity
 @Table(name = "counter_data")
 class CounterData: BaseModel() {
+    /**
+     * Дата снятия показаний
+     */
     @NotNull
     var date: Date = Const.curDate()
 
+    /**
+     * Показания счётчика
+     */
     @NotNull
     var value: Double = 0.0
 
+    /**
+     * Участок размещения счётчика
+     */
     @ManyToOne
     var area: Area? = null
 

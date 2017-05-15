@@ -12,7 +12,8 @@ import uni.dbstuff.utils.toSql
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Форма редактирования записей таблицы "Садоводы"
+ * @param source Запись для редактирования
  */
 class PersonForm(var source: Person) : BaseForm() {
     val txLastName: TextField by fxid()

@@ -4,11 +4,15 @@ import java.time.LocalDate
 import java.util.*
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Преобразует {@link java.util.Date} в {@link java.sql.Date}
+ * @receiver Объект типа {@link java.util.Date}
+ * @return Объект типа {@link java.sql.Date}
  */
-
 fun Date.toSql() = java.sql.Date(this.time)
 
-fun String.matches(regex: String) = this.matches(Regex(regex))
-
+/**
+ * Преобразует {@link java.time.LocalDate} в {@link java.sql.Date}
+ * @receiver Объект типа {@link java.time.LocalDate}
+ * @return Объект типа {@link java.sql.Date}
+ */
 fun LocalDate.toSql() = java.sql.Date.valueOf(this)

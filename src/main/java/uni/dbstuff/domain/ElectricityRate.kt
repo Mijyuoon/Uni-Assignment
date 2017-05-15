@@ -8,18 +8,26 @@ import javax.persistence.Entity
 import javax.persistence.Table
 
 /**
- * Created by Max on 5/5/2017.
+ * Модель объекта "Тариф электроснабжения"
  */
-
 @Entity
 @Table(name = "electricity_rate")
 class ElectricityRate: BaseModel() {
+    /**
+     * Дата начала действия
+     */
     @NotNull
     var begin: Date = Const.curDate()
 
+    /**
+     * Дата окончания действия
+     */
     @NotNull
     var finish: Date = Const.curDate()
 
+    /**
+     * Тариф
+     */
     @NotNull
     var rate: Double = 0.0
 

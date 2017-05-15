@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Садоводы"
  */
 class PersonPage : Fragment(), IRefresher {
     override val root: VBox by fxml()

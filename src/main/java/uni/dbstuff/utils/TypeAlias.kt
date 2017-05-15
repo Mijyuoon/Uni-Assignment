@@ -1,8 +1,11 @@
 package uni.dbstuff.utils
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Функция дополнительной проверки ошибок
  */
-
 typealias ErrorFunc<T> = (T) -> Boolean
+
+/**
+ * Функция обработчика события с параметром
+ */
 typealias ActionFunc<T> = (T) -> Unit

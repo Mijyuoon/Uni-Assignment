@@ -12,7 +12,8 @@ import uni.dbstuff.domain.query.QPerson
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Форма редактирования записей таблицы "Участки"
+ * @param source Запись для редактирования
  */
 class AreaForm(var source: Area) : BaseForm() {
 

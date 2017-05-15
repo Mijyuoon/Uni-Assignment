@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Показания счётчика"
  */
 class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()

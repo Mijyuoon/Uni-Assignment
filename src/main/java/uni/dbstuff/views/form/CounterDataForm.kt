@@ -11,7 +11,8 @@ import uni.dbstuff.utils.toSql
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Форма редактирования записей таблицы "Показания счётчика"
+ * @param source Запись для редактирования
  */
 class CounterDataForm(var source: CounterData) : BaseForm() {
     val cbArea: ComboBox<Area> by fxid()

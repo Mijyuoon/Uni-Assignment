@@ -11,7 +11,8 @@ import uni.dbstuff.utils.toSql
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Форма редактирования записей таблицы "Оплата за электричество"
+ * @param source Запись для редактирования
  */
 class PaymentDataForm(var source: PaymentData) : BaseForm() {
     val cbArea: ComboBox<Area> by fxid()

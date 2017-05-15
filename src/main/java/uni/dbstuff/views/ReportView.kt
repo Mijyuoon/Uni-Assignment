@@ -10,18 +10,28 @@ import java.io.PrintWriter
 import javax.swing.filechooser.FileSystemView
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Окно показа отчётов
+ * @param data Текст отчёта
  */
 class ReportView(data: String) : View() {
     init { title = messages["app_reportform"] }
     override val root: BorderPane by fxml()
 
+    /**
+     * Текстовое поле для текста отчёта
+     */
     val txData: TextArea by fxid()
 
+    /**
+     * Главный инициализатор
+     */
     init {
         txData.text = data
     }
 
+    /**
+     * Запрашивает имя файла используя диалог и сохраняет отчёт
+     */
     fun saveReport() {
         val dialog = FileChooser()
         dialog.title = messages["cmd_saveFile"]

@@ -8,7 +8,8 @@ import uni.dbstuff.utils.toSql
 import uni.dbstuff.utils.SafeParser
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Форма редактирования записей таблицы "Тарифы электроснабжения"
+ * @param source Запись для редактирования
  */
 class ElectricityRateForm(var source: ElectricityRate) : BaseForm() {
     val txBegin: DatePicker by fxid()

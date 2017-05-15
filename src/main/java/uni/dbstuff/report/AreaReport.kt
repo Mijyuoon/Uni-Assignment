@@ -4,9 +4,14 @@ import tornadofx.*
 import uni.dbstuff.domain.Area
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Объект для создания информационной выписки по участку.
  */
 object AreaReport {
+    /**
+     * Создаёт информационную выписку по участку.
+     * @param area Требуемый участок
+     * @return Сгенерированная выписка
+     */
     fun generate(area: Area): String {
         val builder = StringBuilder()
 

@@ -18,7 +18,7 @@ import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.BuildingForm
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Постройки"
  */
 class BuildingPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()

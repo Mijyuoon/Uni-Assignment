@@ -5,12 +5,23 @@ import javafx.scene.input.KeyCode
 import uni.dbstuff.utils.ActionFunc
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Строка таблицы с событиями для манипуляции
+ * @param T Тип объектов, отображаемых в таблице
  */
 class TableEditRow<T> : TableRow<T>() {
+    /**
+     * Обработчик события редактирования
+     */
     var onEditRow: ActionFunc<T> = {}
+
+    /**
+     * Обработчик события едаления
+     */
     var onDeleteRow: ActionFunc<T> = {}
 
+    /**
+     * Главный инициализатор
+     */
     init {
         setOnMouseClicked { ev ->
             if(ev.clickCount == 2 && !isEmpty)

@@ -13,7 +13,7 @@ import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.BuildingTypeForm
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Типы построек"
  */
 class BuildingTypePage : Fragment(), IRefresher {
     override val root: VBox by fxml()

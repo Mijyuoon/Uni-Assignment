@@ -1,6 +1,5 @@
 package uni.dbstuff.views.template
 
-import javafx.beans.property.SimpleObjectProperty
 import javafx.collections.FXCollections
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
@@ -18,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Тарифы электроснабжения"
  */
 class ElectricityRatePage : Fragment(), IRefresher {
     override val root: VBox by fxml()

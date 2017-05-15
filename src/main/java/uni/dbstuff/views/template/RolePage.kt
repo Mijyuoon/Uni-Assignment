@@ -13,7 +13,7 @@ import uni.dbstuff.views.IRefresher
 import uni.dbstuff.views.form.RoleForm
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Роли садоводов"
  */
 class RolePage : Fragment(), IRefresher {
     override val root: VBox by fxml()

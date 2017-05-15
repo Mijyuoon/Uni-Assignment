@@ -8,7 +8,8 @@ import uni.dbstuff.domain.query.QArea
 import uni.dbstuff.domain.query.QBuildingType
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Форма редактирования записей таблицы "Постройки"
+ * @param source Запись для редактирования
  */
 class BuildingForm(var source: Building) : BaseForm() {
     val cbType: ComboBox<BuildingType> by fxid()

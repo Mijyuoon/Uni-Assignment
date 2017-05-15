@@ -9,9 +9,15 @@ import java.sql.Date
 import java.text.SimpleDateFormat
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Объект для создания отчёта о задолженности.
  */
 object PaymentReport {
+    /**
+     * Создаёт отчёт о задолженности на заданную дату
+     * @param area Требуемый участок
+     * @param date Заданная дата
+     * @return Сгенерированный отчёт
+     */
     fun generate(date: Date, area: Area): String {
         val builder = StringBuilder()
 

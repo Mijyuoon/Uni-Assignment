@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Таблица данных "Оплата за электричество"
  */
 class PaymentDataPage(area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()

@@ -7,19 +7,27 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 /**
- * Created by Max on 5/5/2017.
+ * Модель объекта "Постройка"
  */
-
 @Entity
 @Table(name = "building")
 class Building: BaseModel() {
+    /**
+     * Тип постройки
+     */
     @ManyToOne
     var type: BuildingType? = null
 
+    /**
+     * Участок размещения постройки
+     */
     @NotNull
     @ManyToOne
     var area: Area? = null
 
+    /**
+     * Дополнительные сведения
+     */
     var addintionalInfo: String = ""
 
     companion object : BuildingFinder()

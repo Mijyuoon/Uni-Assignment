@@ -13,9 +13,15 @@ import uni.dbstuff.fxui.TableEditRow
 import uni.dbstuff.views.form.BaseForm
 
 /**
- * Created by mijyu on 13/05/2017.
+ * Класс для упрощения синхронизации изменений в визуальной таблице и в базе данных
+ * @param T Тип данных, отображаемых в таблице
+ * @param formFactory Функция, возвращающая экземпляр формы для редактирования записи
+ * @param tableView Экземпляр {@link javafx.scene.control.TableView} для привязки
  */
 class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var formFactory: (T) -> BaseForm): Callback<TableView<T>, TableRow<T>> {
+    /**
+     * Главный инициализатор
+     */
     init {
         tableView.rowFactory = this
         tableView.onKeyPressed = EventHandler { ev ->
@@ -26,6 +32,11 @@ class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var for
         }
     }
 
+    /**
+     * Обработчик события запроса создания новой строки в таблице
+     * @param param Экземпляр {@link javafx.scene.control.TableView}, в котором создаётся строка
+     * @return Созданная строка таблицы
+     */
     override fun call(param: TableView<T>): TableRow<T> {
         val row = TableEditRow<T>()
         row.onEditRow = { x -> edit(x) }
@@ -33,6 +44,10 @@ class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var for
         return row
     }
 
+    /**
+     * Функция для добавления нового элемента в таблицу
+     * @param item Данные, добавляемые в таблицу
+     */
     fun add(item: T) {
         if(formFactory(item).show()) {
             item.save()
@@ -40,6 +55,10 @@ class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var for
         }
     }
 
+    /**
+     * Функция для редактировакия элемента в таблице
+     * @param item Данные, подлежащие редактированию
+     */
     fun edit(item: T) {
         if(formFactory(item).show()) {
             item.save()
@@ -47,6 +66,10 @@ class TableViewEditFormAbstractor<T: Model>(var tableView: TableView<T>, var for
         }
     }
 
+    /**
+     * Функция для удаления элемента из таблицы
+     * @param item Данные, удаляемые из таблицы
+     */
     fun delete(item: T) {
         val dialog = Alert(Alert.AlertType.CONFIRMATION)
         dialog.contentText = FX.messages["msg_deleteRecord"]

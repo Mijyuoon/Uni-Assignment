@@ -6,9 +6,13 @@ import uni.dbstuff.domain.query.QPerson
 import java.text.SimpleDateFormat
 
 /**
- * Created by mijyu on 14/05/2017.
+ * Объект для создания информационной выписки о садоводах
  */
 object PersonReport {
+    /**
+     * Создаёт информационную выписку о садоводах
+     * @return Сгенерированная выписка
+     */
     fun generate(): String {
         val builder = StringBuilder()
         val people = QPerson().findList()
