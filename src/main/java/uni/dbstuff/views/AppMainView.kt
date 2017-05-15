@@ -3,6 +3,8 @@ package uni.dbstuff.views
 import javafx.collections.FXCollections
 import javafx.geometry.Insets
 import javafx.scene.control.*
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.GridPane
 import javafx.util.Callback
@@ -127,6 +129,7 @@ class AppMainView : View() {
     fun showAreaStats() {
         val areas = QArea().select("number").findList()
         val dialog = ChoiceDialog(null, areas)
+        dialog.title = messages["cmd_showAreaStats"]
         dialog.headerText = messages["mt_areaReport"]
         dialog.contentText = messages["msg_areaReport"]
 
@@ -150,6 +153,7 @@ class AppMainView : View() {
      */
     fun showPaymentStats() {
         val dialog = Dialog<Pair<LocalDate, Area>?>()
+        dialog.title = messages["cmd_showPaymentStats"]
         dialog.headerText = messages["mt_paymentReport"]
         dialog.dialogPane.buttonTypes.addAll(ButtonType.OK, ButtonType.CANCEL)
         dialog.dialogPane.styleClass.add("choice-dialog")
@@ -185,6 +189,30 @@ class AppMainView : View() {
             val report = PaymentReport.generate(date, area)
             ReportView(report).openModal()
         }
+    }
+
+    /**
+     * Показывает информацию о программе
+     */
+    fun showAboutDialog() {
+        val dialog = Dialog<Unit>()
+        dialog.title = messages["cmd_showAboutDialog"]
+        dialog.headerText = messages["mt_aboutDialog"]
+        dialog.dialogPane.buttonTypes.add(ButtonType.OK)
+        dialog.dialogPane.styleClass.addAll("alert", "information")
+
+        val grid = GridPane()
+        grid.hgap = 10.0
+        grid.vgap = 10.0
+        grid.padding = Insets(10.0, 10.0, 10.0, 10.0)
+
+        grid.add(ImageView("/assets/Kotlin_Logo.png"), 0, 0)
+        grid.add(Label(messages["msg_aboutDialog1"]), 1, 0)
+        grid.add(Label(messages["msg_aboutDialog2"]), 0, 1)
+
+        dialog.dialogPane.content = grid
+
+        dialog.showAndWait()
     }
 }
 

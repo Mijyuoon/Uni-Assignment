@@ -29,6 +29,9 @@
                 <MenuItem text="%cmd_showPersonStats" accelerator="Ctrl+Shift+2" onAction="#showPersonStats"/>
                 <MenuItem text="%cmd_showPaymentStats" accelerator="Ctrl+Shift+3" onAction="#showPaymentStats"/>
             </Menu>
+            <Menu text="%menu_help">
+                <MenuItem text="%cmd_showAboutDialog" onAction="#showAboutDialog"/>
+            </Menu>
         </MenuBar>
     </top>
     <center>
