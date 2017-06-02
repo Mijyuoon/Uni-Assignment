@@ -42,7 +42,7 @@ class ElectricityRatePage : Fragment(), IRefresher {
 
         colValue.cellValueFactory = PropertyValueFactory(ElectricityRate::rate.name)
 
-        tbData.items = FXCollections.observableList(QElectricityRate().findList())
+        refresh()
     }
 
     fun createItem() {
@@ -55,5 +55,8 @@ class ElectricityRatePage : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        tbData.items = FXCollections.observableList(QElectricityRate().findList())
+        tbData.refresh()
+    }
 }

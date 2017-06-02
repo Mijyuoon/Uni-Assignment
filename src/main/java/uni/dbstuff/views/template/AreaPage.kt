@@ -83,7 +83,7 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
             }
         }
 
-        tbData.items = FXCollections.observableList(QArea().fetch("owner").findList())
+        refresh()
     }
 
     fun createItem() {
@@ -96,5 +96,8 @@ class AreaPage(adder: ITabAdder) : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        tbData.items = FXCollections.observableList(QArea().fetch("owner").findList())
+        tbData.refresh()
+    }
 }

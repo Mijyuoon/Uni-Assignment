@@ -26,7 +26,7 @@ class RolePage : Fragment(), IRefresher {
     init {
         colName.cellValueFactory = PropertyValueFactory(Role::roleName.name)
 
-        tbData.items = FXCollections.observableList(QRole().findList())
+        refresh()
     }
 
     fun createItem() {
@@ -39,5 +39,8 @@ class RolePage : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        tbData.items = FXCollections.observableList(QRole().findList())
+        tbData.refresh()
+    }
 }

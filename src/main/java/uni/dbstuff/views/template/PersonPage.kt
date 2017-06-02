@@ -53,7 +53,7 @@ class PersonPage : Fragment(), IRefresher {
             SimpleStringProperty(data ?: "")
         }
 
-        tbData.items = FXCollections.observableList(QPerson().findList())
+        refresh()
     }
 
     fun createItem() {
@@ -66,5 +66,8 @@ class PersonPage : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        tbData.items = FXCollections.observableList(QPerson().findList())
+        tbData.refresh()
+    }
 }

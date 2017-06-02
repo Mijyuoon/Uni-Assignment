@@ -20,7 +20,7 @@ import uni.dbstuff.views.form.BuildingForm
 /**
  * Таблица данных "Постройки"
  */
-class BuildingPage(area: Area? = null) : Fragment(), IRefresher {
+class BuildingPage(val area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<Building> by fxid()
 
@@ -43,13 +43,7 @@ class BuildingPage(area: Area? = null) : Fragment(), IRefresher {
 
         colInfo.cellValueFactory = PropertyValueFactory(Building::addintionalInfo.name)
 
-        val items = if(area == null) {
-            QBuilding().findList()
-        } else {
-            QBuilding().area.equalTo(area).findList()
-        }
-
-        tbData.items = FXCollections.observableList(items)
+        refresh()
     }
 
     fun createItem() {
@@ -62,5 +56,14 @@ class BuildingPage(area: Area? = null) : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        val items = if(area == null) {
+            QBuilding().findList()
+        } else {
+            QBuilding().area.equalTo(area).findList()
+        }
+
+        tbData.items = FXCollections.observableList(items)
+        tbData.refresh()
+    }
 }

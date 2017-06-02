@@ -21,7 +21,7 @@ import java.util.Date
 /**
  * Таблица данных "Оплата за электричество"
  */
-class PaymentDataPage(area: Area? = null) : Fragment(), IRefresher {
+class PaymentDataPage(val area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<PaymentData> by fxid()
 
@@ -49,13 +49,7 @@ class PaymentDataPage(area: Area? = null) : Fragment(), IRefresher {
 
         colTotal.cellValueFactory = PropertyValueFactory(PaymentData::total.name)
 
-        val items = if(area == null) {
-            QPaymentData().findList()
-        } else {
-            QPaymentData().area.equalTo(area).findList()
-        }
-
-        tbData.items = FXCollections.observableList(items)
+        refresh()
     }
 
     fun createItem() {
@@ -68,5 +62,14 @@ class PaymentDataPage(area: Area? = null) : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        val items = if(area == null) {
+            QPaymentData().findList()
+        } else {
+            QPaymentData().area.equalTo(area).findList()
+        }
+
+        tbData.items = FXCollections.observableList(items)
+        tbData.refresh()
+    }
 }

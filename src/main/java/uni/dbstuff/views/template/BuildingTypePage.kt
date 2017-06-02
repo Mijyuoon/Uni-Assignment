@@ -26,7 +26,7 @@ class BuildingTypePage : Fragment(), IRefresher {
     init {
         colType.cellValueFactory = PropertyValueFactory(BuildingType::buildingTypeName.name)
 
-        tbData.items = FXCollections.observableList(QBuildingType().findList())
+        refresh()
     }
 
     fun createItem() {
@@ -39,5 +39,8 @@ class BuildingTypePage : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        tbData.items = FXCollections.observableList(QBuildingType().findList())
+        tbData.refresh()
+    }
 }

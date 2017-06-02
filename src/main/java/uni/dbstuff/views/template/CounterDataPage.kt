@@ -21,7 +21,7 @@ import java.util.*
 /**
  * Таблица данных "Показания счётчика"
  */
-class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
+class CounterDataPage(val area: Area? = null) : Fragment(), IRefresher {
     override val root: VBox by fxml()
     val tbData: TableView<CounterData> by fxid()
 
@@ -44,13 +44,7 @@ class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
 
         colValue.cellValueFactory = PropertyValueFactory(CounterData::value.name)
 
-        val items = if(area == null) {
-            QCounterData().findList()
-        } else {
-            QCounterData().area.equalTo(area).findList()
-        }
-
-        tbData.items = FXCollections.observableList(items)
+        refresh()
     }
 
     fun createItem() {
@@ -63,5 +57,14 @@ class CounterDataPage(area: Area? = null) : Fragment(), IRefresher {
         editor.delete(item)
     }
 
-    override fun refresh() = Unit
+    override fun refresh() {
+        val items = if(area == null) {
+            QCounterData().findList()
+        } else {
+            QCounterData().area.equalTo(area).findList()
+        }
+
+        tbData.items = FXCollections.observableList(items)
+        tbData.refresh()
+    }
 }
